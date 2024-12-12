@@ -3,7 +3,6 @@ C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\ProyectoGina.runtimeconfig.json
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\ProyectoGina.dll
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\ProyectoGina.pdb
-C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.Form1.resources
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.csproj.GenerateResource.cache
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.AssemblyInfoInputs.cache
@@ -15,3 +14,5 @@ C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.pdb
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.genruntimeconfig.cache
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ref\ProyectoGina.dll
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormPortada.resources
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormUsuario.resources

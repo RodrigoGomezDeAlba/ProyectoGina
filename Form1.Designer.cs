@@ -1,6 +1,6 @@
 ﻿namespace ProyectoGina
 {
-    partial class Form1
+    partial class FormPortada
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,11 +33,10 @@
             UAALOGO = new PictureBox();
             DATOS = new PictureBox();
             FECHALBL = new Label();
-            LOGOSLOGAN = new PictureBox();
+            BTNPortadaIngresar = new Button();
             ((System.ComponentModel.ISupportInitialize)CCB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)UAALOGO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DATOS).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).BeginInit();
             SuspendLayout();
             // 
             // BTNPortadaSalir
@@ -87,35 +86,35 @@
             FECHALBL.TabIndex = 4;
             FECHALBL.Text = "label1";
             // 
-            // LOGOSLOGAN
+            // BTNPortadaIngresar
             // 
-            LOGOSLOGAN.BackColor = Color.Snow;
-            LOGOSLOGAN.Location = new Point(328, 12);
-            LOGOSLOGAN.Name = "LOGOSLOGAN";
-            LOGOSLOGAN.Size = new Size(182, 147);
-            LOGOSLOGAN.TabIndex = 5;
-            LOGOSLOGAN.TabStop = false;
+            BTNPortadaIngresar.Location = new Point(664, 381);
+            BTNPortadaIngresar.Name = "BTNPortadaIngresar";
+            BTNPortadaIngresar.Size = new Size(102, 49);
+            BTNPortadaIngresar.TabIndex = 6;
+            BTNPortadaIngresar.Text = "Ingresar";
+            BTNPortadaIngresar.UseVisualStyleBackColor = true;
+            BTNPortadaIngresar.Click += BTNPortadaIngresar_Click;
             // 
-            // Form1
+            // FormPortada
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Sienna;
             ClientSize = new Size(800, 450);
-            Controls.Add(LOGOSLOGAN);
+            Controls.Add(BTNPortadaIngresar);
             Controls.Add(FECHALBL);
             Controls.Add(DATOS);
             Controls.Add(UAALOGO);
             Controls.Add(CCB);
             Controls.Add(BTNPortadaSalir);
-            Name = "Form1";
+            Name = "FormPortada";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "PORTADA";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)CCB).EndInit();
             ((System.ComponentModel.ISupportInitialize)UAALOGO).EndInit();
             ((System.ComponentModel.ISupportInitialize)DATOS).EndInit();
-            ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -127,6 +126,6 @@
         private PictureBox UAALOGO;
         private PictureBox DATOS;
         private Label FECHALBL;
-        private PictureBox LOGOSLOGAN;
+        private Button BTNPortadaIngresar;
     }
 }
