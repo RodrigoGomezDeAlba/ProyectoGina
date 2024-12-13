@@ -70,7 +70,7 @@
             // DATOS
             // 
             DATOS.BackColor = Color.Snow;
-            DATOS.Location = new Point(412, 82);
+            DATOS.Location = new Point(412, 81);
             DATOS.Name = "DATOS";
             DATOS.Size = new Size(354, 213);
             DATOS.TabIndex = 3;

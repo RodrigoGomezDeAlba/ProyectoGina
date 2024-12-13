@@ -6,12 +6,33 @@ namespace ProyectoGina
         {
             InitializeComponent();
 
-            CCB.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta la imagen al PictureBox
-            CCB.Image = Image.FromFile("C:\\Users\\manue\\OneDrive\\Documentos\\UAA\\Semestre 3\\Programacion 2\\Proyecto final\\ProyectoGina/logo-ccb.png");
-            UAALOGO.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta la imagen al PictureBox
-            UAALOGO.Image = Image.FromFile("C:\\Users\\manue\\OneDrive\\Documentos\\UAA\\Semestre 3\\Programacion 2\\Proyecto final\\ProyectoGina/UAALOGO.png");
-            DATOS.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta la imagen al PictureBox
-            DATOS.Image = Image.FromFile("C:\\Users\\manue\\OneDrive\\Documentos\\UAA\\Semestre 3\\Programacion 2\\Proyecto final\\ProyectoGina/Datos.png");
+            CCB.SizeMode = PictureBoxSizeMode.Zoom;
+            UAALOGO.SizeMode = PictureBoxSizeMode.Zoom;
+            DATOS.SizeMode = PictureBoxSizeMode.Zoom;
+
+            // Cargar imágenes automáticamente
+            LoadImages();
+        }
+
+        private void LoadImages()
+        {
+            string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+            CCB.Image = LoadImageFromPath(Path.Combine(basePath, "logo-ccb.png"));
+            UAALOGO.Image = LoadImageFromPath(Path.Combine(basePath, "UAALOGO.png"));
+            DATOS.Image = LoadImageFromPath(Path.Combine(basePath, "Datos.png"));
+        }
+
+        private Image LoadImageFromPath(string imagePath)
+        {
+            if (File.Exists(imagePath))
+            {
+                return Image.FromFile(imagePath);
+            }
+            else
+            {
+                MessageBox.Show($"No se encontró la imagen en la ruta: {imagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

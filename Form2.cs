@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProyectoGina
 {
@@ -20,9 +21,30 @@ namespace ProyectoGina
             InitializeComponent();
 
             LOGOSLOGAN.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta la imagen al PictureBox
-            LOGOSLOGAN.Image = Image.FromFile("C:\\Users\\manue\\OneDrive\\Documentos\\UAA\\Semestre 3\\Programacion 2\\Proyecto final\\ProyectoGina/LOGOSLOGAN.png");
             usuario = TXTUsuario.Text;
             contra = TXTUsuario.Text;
+
+            //Cragar imagenes
+            LoadImages();
+        }
+
+        private void LoadImages()
+        {
+            string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+            LOGOSLOGAN.Image = LoadImageFromPath(Path.Combine(basePath, "LOGOSLOGAN.png"));
+        }
+
+        private Image LoadImageFromPath(string imagePath)
+        {
+            if (File.Exists(imagePath))
+            {
+                return Image.FromFile(imagePath);
+            }
+            else
+            {
+                MessageBox.Show($"No se encontró la imagen en la ruta: {imagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         private void FormUsuario_Load(object sender, EventArgs e)
