@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProyectoGina
 {
-    public partial class FormUsuario : Form
+    public partial class FormUsuario : System.Windows.Forms.Form
     {
         public string usuario;
         public string contra;
@@ -72,6 +72,13 @@ namespace ProyectoGina
             usuario = TXTUsuario.Text;
             contra = TXTUsuario.Text;
             //aqui va el if de si es igual o no la contraseña y el usuario
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMainUsuario form3 = new FormMainUsuario();
+            form3.ShowDialog();
         }
     }
 }

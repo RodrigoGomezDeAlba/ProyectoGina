@@ -1,6 +1,6 @@
 namespace ProyectoGina
 {
-    public partial class FormPortada : Form
+    public partial class FormPortada : System.Windows.Forms.Form
     {
         public FormPortada()
         {
