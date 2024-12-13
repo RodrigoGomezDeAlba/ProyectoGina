@@ -39,5 +39,17 @@ namespace ProyectoGina
         {
             contra = TXTUsuario.Text;
         }
+
+        private void BTNSalirF2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BTNIngresar_Click(object sender, EventArgs e)
+        {
+            usuario = TXTUsuario.Text;
+            contra = TXTUsuario.Text;
+            //aqui va el if de si es igual o no la contraseña y el usuario
+        }
     }
 }
