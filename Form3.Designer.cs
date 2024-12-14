@@ -31,8 +31,11 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainUsuario));
             ImageProductos = new ImageList(components);
-            LBLImage = new Label();
             BTNPASARIMAGEN = new Button();
+            PICTUREIMAGES = new PictureBox();
+            BTNSALIRMAINUSU = new Button();
+            BTNLOGOUTMAINUSER = new Button();
+            ((System.ComponentModel.ISupportInitialize)PICTUREIMAGES).BeginInit();
             SuspendLayout();
             // 
             // ImageProductos
@@ -51,14 +54,6 @@
             ImageProductos.Images.SetKeyName(8, "ParfumsMarlyLayton.jpg");
             ImageProductos.Images.SetKeyName(9, "Y LE PARFUM.jpg");
             // 
-            // LBLImage
-            // 
-            LBLImage.BackColor = Color.Snow;
-            LBLImage.Location = new Point(255, 9);
-            LBLImage.Name = "LBLImage";
-            LBLImage.Size = new Size(325, 299);
-            LBLImage.TabIndex = 0;
-            // 
             // BTNPASARIMAGEN
             // 
             BTNPASARIMAGEN.Location = new Point(586, 278);
@@ -68,23 +63,58 @@
             BTNPASARIMAGEN.UseVisualStyleBackColor = true;
             BTNPASARIMAGEN.Click += BTNPASARIMAGEN_Click;
             // 
+            // PICTUREIMAGES
+            // 
+            PICTUREIMAGES.BackColor = Color.Snow;
+            PICTUREIMAGES.Location = new Point(259, 9);
+            PICTUREIMAGES.Name = "PICTUREIMAGES";
+            PICTUREIMAGES.Size = new Size(325, 296);
+            PICTUREIMAGES.TabIndex = 2;
+            PICTUREIMAGES.TabStop = false;
+            // 
+            // BTNSALIRMAINUSU
+            // 
+            BTNSALIRMAINUSU.Location = new Point(28, 384);
+            BTNSALIRMAINUSU.Name = "BTNSALIRMAINUSU";
+            BTNSALIRMAINUSU.Size = new Size(109, 46);
+            BTNSALIRMAINUSU.TabIndex = 3;
+            BTNSALIRMAINUSU.Text = "Salir";
+            BTNSALIRMAINUSU.UseVisualStyleBackColor = true;
+            BTNSALIRMAINUSU.Click += BTNSALIRMAINUSU_Click;
+            // 
+            // BTNLOGOUTMAINUSER
+            // 
+            BTNLOGOUTMAINUSER.Location = new Point(663, 384);
+            BTNLOGOUTMAINUSER.Name = "BTNLOGOUTMAINUSER";
+            BTNLOGOUTMAINUSER.Size = new Size(109, 46);
+            BTNLOGOUTMAINUSER.TabIndex = 4;
+            BTNLOGOUTMAINUSER.Text = "LOG OUT";
+            BTNLOGOUTMAINUSER.UseVisualStyleBackColor = true;
+            BTNLOGOUTMAINUSER.Click += BTNLOGOUTMAINUSER_Click;
+            // 
             // FormMainUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Sienna;
             ClientSize = new Size(800, 450);
+            Controls.Add(BTNLOGOUTMAINUSER);
+            Controls.Add(BTNSALIRMAINUSU);
+            Controls.Add(PICTUREIMAGES);
             Controls.Add(BTNPASARIMAGEN);
-            Controls.Add(LBLImage);
             Name = "FormMainUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MAIN";
+            ((System.ComponentModel.ISupportInitialize)PICTUREIMAGES).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private ImageList ImageProductos;
-        private Label LBLImage;
         private Button BTNPASARIMAGEN;
+        private PictureBox PICTUREIMAGES;
+        private Button BTNSALIRMAINUSU;
+        private Button BTNLOGOUTMAINUSER;
     }
 }

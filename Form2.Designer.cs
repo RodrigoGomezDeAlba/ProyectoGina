@@ -36,6 +36,7 @@
             BTNIngresar = new Button();
             BTNSalirF2 = new Button();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).BeginInit();
             SuspendLayout();
             // 
@@ -111,9 +112,19 @@
             button1.Name = "button1";
             button1.Size = new Size(85, 36);
             button1.TabIndex = 9;
-            button1.Text = "Borrame";
+            button1.Text = "FormUsuario";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(68, 17);
+            button2.Name = "button2";
+            button2.Size = new Size(97, 38);
+            button2.TabIndex = 10;
+            button2.Text = "FormAdmin";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // FormUsuario
             // 
@@ -121,6 +132,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Sienna;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(BTNSalirF2);
             Controls.Add(BTNIngresar);
@@ -148,5 +160,6 @@
         private Button BTNIngresar;
         private Button BTNSalirF2;
         private Button button1;
+        private Button button2;
     }
 }

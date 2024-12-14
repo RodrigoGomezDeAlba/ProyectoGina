@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoGina
@@ -13,22 +7,44 @@ namespace ProyectoGina
     public partial class FormMainUsuario : System.Windows.Forms.Form
     {
         public static int cont;
+
         public FormMainUsuario()
         {
             InitializeComponent();
-            LBLImage.Image = ImageProductos.Images[0];
+
+            // Configuración del PictureBox
+            PICTUREIMAGES.SizeMode = PictureBoxSizeMode.Zoom; // Asegura que las imágenes se escalen correctamente
+
+            // Asignar la primera imagen
+            PICTUREIMAGES.Image = ImageProductos.Images[cont];
         }
 
         private void BTNPASARIMAGEN_Click(object sender, EventArgs e)
         {
+            // Incrementar el contador
             cont++;
-            LBLImage.Image=ImageProductos.Images[cont];
 
-            if (cont == 9)
+            // Validar que el contador no exceda la cantidad de imágenes
+            if (cont >= ImageProductos.Images.Count)
             {
-                cont = 0;
+                cont = 0; // Reiniciar al inicio
             }
 
+            // Cambiar la imagen en el PictureBox
+            PICTUREIMAGES.Image = ImageProductos.Images[cont];
+        }
+
+        private void BTNSALIRMAINUSU_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BTNLOGOUTMAINUSER_Click(object sender, EventArgs e)
+        {
+            //Transporta a la pantalla de incicio de secion
+            this.Hide();
+            FormUsuario form = new FormUsuario();
+            form.ShowDialog();
         }
     }
 }

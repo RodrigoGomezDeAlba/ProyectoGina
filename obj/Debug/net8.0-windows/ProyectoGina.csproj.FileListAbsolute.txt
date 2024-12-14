@@ -21,3 +21,4 @@ C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\Images\LOGOSLOGAN.png
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\Images\UAALOGO.png
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormMainUsuario.resources
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormMainAdmin.resources

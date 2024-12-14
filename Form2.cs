@@ -64,7 +64,7 @@ namespace ProyectoGina
 
         private void BTNSalirF2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void BTNIngresar_Click(object sender, EventArgs e)
@@ -79,6 +79,13 @@ namespace ProyectoGina
             this.Hide();
             FormMainUsuario form3 = new FormMainUsuario();
             form3.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMainAdmin form4 = new FormMainAdmin();
+            form4.ShowDialog();
         }
     }
 }

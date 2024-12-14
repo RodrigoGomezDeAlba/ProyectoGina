@@ -42,7 +42,7 @@ namespace ProyectoGina
 
         private void BTNPortadaSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void BTNPortadaIngresar_Click(object sender, EventArgs e)
