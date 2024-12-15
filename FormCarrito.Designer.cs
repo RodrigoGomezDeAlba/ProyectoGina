@@ -31,6 +31,7 @@
             BTNREGRESARCARRITO = new Button();
             BTNTICKETCARRITO = new Button();
             BTNCONFIRMCARRITO = new Button();
+            RCHTBLISTAPROD = new RichTextBox();
             SuspendLayout();
             // 
             // BTNREGRESARCARRITO
@@ -62,12 +63,23 @@
             BTNCONFIRMCARRITO.Text = "Confirmar Compra";
             BTNCONFIRMCARRITO.UseVisualStyleBackColor = true;
             // 
+            // RCHTBLISTAPROD
+            // 
+            RCHTBLISTAPROD.Enabled = false;
+            RCHTBLISTAPROD.Location = new Point(182, 12);
+            RCHTBLISTAPROD.Name = "RCHTBLISTAPROD";
+            RCHTBLISTAPROD.Size = new Size(442, 252);
+            RCHTBLISTAPROD.TabIndex = 3;
+            RCHTBLISTAPROD.Text = "";
+            RCHTBLISTAPROD.TextChanged += RCHTBLISTAPROD_TextChanged;
+            // 
             // FormCarrito
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Sienna;
             ClientSize = new Size(800, 450);
+            Controls.Add(RCHTBLISTAPROD);
             Controls.Add(BTNCONFIRMCARRITO);
             Controls.Add(BTNTICKETCARRITO);
             Controls.Add(BTNREGRESARCARRITO);
@@ -83,5 +95,6 @@
         private Button BTNREGRESARCARRITO;
         private Button BTNTICKETCARRITO;
         private Button BTNCONFIRMCARRITO;
+        private RichTextBox RCHTBLISTAPROD;
     }
 }

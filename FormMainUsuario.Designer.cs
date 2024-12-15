@@ -121,7 +121,7 @@
             BTNCARRITOMAINUSU.TabIndex = 7;
             BTNCARRITOMAINUSU.Text = "Carrito";
             BTNCARRITOMAINUSU.UseVisualStyleBackColor = true;
-            BTNCARRITOMAINUSU.Click += this.BTNCARRITOMAINUSU_Click;
+            BTNCARRITOMAINUSU.Click += BTNCARRITOMAINUSU_Click;
             // 
             // FormMainUsuario
             // 
@@ -139,6 +139,7 @@
             Name = "FormMainUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MAIN";
+            Load += FormMainUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)PICTUREIMAGES).EndInit();
             ((System.ComponentModel.ISupportInitialize)CONTADORPRODMAINUSU).EndInit();
             ResumeLayout(false);

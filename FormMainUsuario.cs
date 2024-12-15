@@ -36,19 +36,21 @@ namespace ProyectoGina
             vec[9] = "Byredo Mojave Ghost";
         }
 
-        /*public bool comparar()
+        public bool comparar()
         {
             prodc=CONTADORPRODMAINUSU.Value;
-            if (existencias<prodc)
+            /*if (existencias<prodc)
             {
                 MessageBox.Show("No hay existencias suficientes", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
+                CONTADORPRODMAINUSU.Value=0;
                 return true;
-            }
-        }*/
+            }*/
+            return true;
+        }
 
         private void BTNPASARIMAGEN_Click(object sender, EventArgs e)
         {
@@ -80,17 +82,23 @@ namespace ProyectoGina
 
         private void BTNCOMPRARMAINUSU_Click(object sender, EventArgs e)
         {
-            /*if (comparar())
+            if (comparar())
             {
                 MessageBox.Show("La fragancia se agregó al carrito", "EXITO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+                //existencias-prodc;
+            }
         }
 
         private void BTNCARRITOMAINUSU_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormCarrito f=new FormCarrito();
+            FormCarrito f = new FormCarrito();
             f.ShowDialog();
+        }
+
+        private void FormMainUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
