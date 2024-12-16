@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
+
 
 
 namespace ProyectoGina
@@ -11,6 +13,8 @@ namespace ProyectoGina
         public static decimal prodc;//productos a comprar
         public static string[] vec;
         public static bool flag;//bandera para transportar al carrito
+        public static List<Tuple<string, decimal>> carrito; // Lista de productos y cantidades
+
 
         public FormMainUsuario()
         {
@@ -34,6 +38,8 @@ namespace ProyectoGina
             vec[7] = "Nishane Hacivat";
             vec[8] = "Parfums Marly Layton";
             vec[9] = "Y Le Parfum";
+
+            carrito = new List<Tuple<string, decimal>>();
         }
 
         public bool comparar()
@@ -82,10 +88,18 @@ namespace ProyectoGina
 
         private void BTNCOMPRARMAINUSU_Click(object sender, EventArgs e)
         {
-            if (comparar())
+            if(CONTADORPRODMAINUSU.Value>0)
             {
-                MessageBox.Show("La fragancia se agregó al carrito", "EXITO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //existencias-prodc;
+                if (comparar())
+                {
+                    // Agregar el producto al carrito
+                    string productoSeleccionado = vec[cont];
+                    carrito.Add(new Tuple<string, decimal>(productoSeleccionado, prodc));
+                    CONTADORPRODMAINUSU.Value = 0;
+
+                    // Mostrar mensaje de éxito
+                    MessageBox.Show("La fragancia se agregó al carrito", "¡Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

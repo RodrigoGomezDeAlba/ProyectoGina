@@ -52,6 +52,7 @@ C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\PdfSharp.dll
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\de\PdfSharp.Charting.resources.dll
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\de\PdfSharp.resources.dll
+<<<<<<< HEAD
 C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\bin\Debug\net8.0-windows\ProyectoGina.exe
 C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\bin\Debug\net8.0-windows\Images\Datos.png
 C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\bin\Debug\net8.0-windows\Images\logo-ccb.png
@@ -107,3 +108,6 @@ C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\obj\Debug\net8.0-windows\Proyec
 C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.genruntimeconfig.cache
 C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\obj\Debug\net8.0-windows\ref\ProyectoGina.dll
 C:\Users\rodri\Desktop\ProyectoGina\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.Properties.Resources.resources
+=======
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.Properties.Resources.resources
+>>>>>>> d988e6b90ece1edc6197071093b344ae0704d1ad
