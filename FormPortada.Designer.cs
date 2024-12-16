@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPortada));
             BTNPortadaSalir = new Button();
             CCB = new PictureBox();
             UAALOGO = new PictureBox();
@@ -41,38 +42,51 @@
             // 
             // BTNPortadaSalir
             // 
-            BTNPortadaSalir.Location = new Point(19, 381);
+            BTNPortadaSalir.BackColor = Color.Gainsboro;
+            BTNPortadaSalir.Cursor = Cursors.Hand;
+            BTNPortadaSalir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BTNPortadaSalir.Location = new Point(39, 610);
+            BTNPortadaSalir.Margin = new Padding(5);
             BTNPortadaSalir.Name = "BTNPortadaSalir";
-            BTNPortadaSalir.Size = new Size(102, 49);
+            BTNPortadaSalir.Size = new Size(166, 78);
             BTNPortadaSalir.TabIndex = 0;
             BTNPortadaSalir.Text = "Salir";
-            BTNPortadaSalir.UseVisualStyleBackColor = true;
+            BTNPortadaSalir.UseVisualStyleBackColor = false;
             BTNPortadaSalir.Click += BTNPortadaSalir_Click;
             // 
             // CCB
             // 
             CCB.BackColor = Color.Snow;
-            CCB.Location = new Point(19, 12);
+            CCB.Image = (Image)resources.GetObject("CCB.Image");
+            CCB.Location = new Point(76, 81);
+            CCB.Margin = new Padding(5);
             CCB.Name = "CCB";
-            CCB.Size = new Size(747, 341);
+            CCB.Size = new Size(871, 494);
+            CCB.SizeMode = PictureBoxSizeMode.Zoom;
             CCB.TabIndex = 1;
             CCB.TabStop = false;
             // 
             // UAALOGO
             // 
             UAALOGO.BackColor = Color.Snow;
-            UAALOGO.Location = new Point(658, 12);
+            UAALOGO.Image = (Image)resources.GetObject("UAALOGO.Image");
+            UAALOGO.Location = new Point(1002, -25);
+            UAALOGO.Margin = new Padding(5);
             UAALOGO.Name = "UAALOGO";
-            UAALOGO.Size = new Size(108, 88);
+            UAALOGO.Size = new Size(309, 268);
+            UAALOGO.SizeMode = PictureBoxSizeMode.Zoom;
             UAALOGO.TabIndex = 2;
             UAALOGO.TabStop = false;
             // 
             // DATOS
             // 
             DATOS.BackColor = Color.Snow;
-            DATOS.Location = new Point(412, 81);
+            DATOS.Image = (Image)resources.GetObject("DATOS.Image");
+            DATOS.Location = new Point(592, 176);
+            DATOS.Margin = new Padding(5);
             DATOS.Name = "DATOS";
-            DATOS.Size = new Size(354, 213);
+            DATOS.Size = new Size(593, 361);
+            DATOS.SizeMode = PictureBoxSizeMode.StretchImage;
             DATOS.TabIndex = 3;
             DATOS.TabStop = false;
             // 
@@ -80,34 +94,41 @@
             // 
             FECHALBL.AutoSize = true;
             FECHALBL.BackColor = Color.Snow;
-            FECHALBL.Location = new Point(645, 313);
+            FECHALBL.Font = new Font("Segoe UI Semibold", 7.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FECHALBL.Location = new Point(855, 434);
+            FECHALBL.Margin = new Padding(5, 0, 5, 0);
             FECHALBL.Name = "FECHALBL";
-            FECHALBL.Size = new Size(50, 20);
+            FECHALBL.Size = new Size(59, 25);
             FECHALBL.TabIndex = 4;
-            FECHALBL.Text = "label1";
+            FECHALBL.Text = "fecha";
             // 
             // BTNPortadaIngresar
             // 
-            BTNPortadaIngresar.Location = new Point(664, 381);
+            BTNPortadaIngresar.BackColor = SystemColors.GradientInactiveCaption;
+            BTNPortadaIngresar.Cursor = Cursors.Hand;
+            BTNPortadaIngresar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BTNPortadaIngresar.Location = new Point(1096, 610);
+            BTNPortadaIngresar.Margin = new Padding(5);
             BTNPortadaIngresar.Name = "BTNPortadaIngresar";
-            BTNPortadaIngresar.Size = new Size(102, 49);
+            BTNPortadaIngresar.Size = new Size(166, 78);
             BTNPortadaIngresar.TabIndex = 6;
             BTNPortadaIngresar.Text = "Ingresar";
-            BTNPortadaIngresar.UseVisualStyleBackColor = true;
+            BTNPortadaIngresar.UseVisualStyleBackColor = false;
             BTNPortadaIngresar.Click += BTNPortadaIngresar_Click;
             // 
             // FormPortada
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Sienna;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Snow;
+            ClientSize = new Size(1300, 720);
             Controls.Add(BTNPortadaIngresar);
             Controls.Add(FECHALBL);
             Controls.Add(DATOS);
             Controls.Add(UAALOGO);
             Controls.Add(CCB);
             Controls.Add(BTNPortadaSalir);
+            Margin = new Padding(5);
             Name = "FormPortada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PORTADA";

@@ -21,7 +21,10 @@ namespace ProyectoGina
         {
             // Limpiar el contenido del RichTextBox
             RCHTBLISTAPROD.Clear();
-
+            if (RCHTBLISTAPROD.Text == "")
+            {
+                RCHTBLISTAPROD.AppendText("Lista de Productos: \n");
+            }
             // Validar que FormMainUsuario.vec y demás elementos están inicializados
             if (FormMainUsuario.vec != null && FormMainUsuario.vec.Length > 0)
             {
@@ -112,6 +115,7 @@ namespace ProyectoGina
 
         private void RCHTBLISTAPROD_TextChanged(object sender, EventArgs e)
         {
+
         }
     }
 }

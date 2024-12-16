@@ -24,21 +24,21 @@ namespace ProyectoGina
 
             //asiganr los nombres de los perfumes al vector
             vec = new string[10];
-            vec[0] = "Armani Code Perfum";
-            vec[1] = "Hugo Boss Bottled Absolu";
-            vec[2] = "Givenchy Society Extreme";
-            vec[3] = "Y Le Parfum";
-            vec[4] = "Myself";
-            vec[5] = "BDK Gris Charnel";
-            vec[6] = "Parfums de Marly Layton";
+            vec[0] = "Armani Code Parfum";
+            vec[1] = "BDK Gris Channel";
+            vec[2] = "Creed Silver Mountain Water";
+            vec[3] = "Givenchy Society Extreme";
+            vec[4] = "Hugo Boss Absolu";
+            vec[5] = "Byredo Mojave Ghost";
+            vec[6] = "Myself";
             vec[7] = "Nishane Hacivat";
-            vec[8] = "Creed Silver Mountain Water";
-            vec[9] = "Byredo Mojave Ghost";
+            vec[8] = "Parfums Marly Layton";
+            vec[9] = "Y Le Parfum";
         }
 
         public bool comparar()
         {
-            prodc=CONTADORPRODMAINUSU.Value;
+            prodc = CONTADORPRODMAINUSU.Value;
             /*if (existencias<prodc)
             {
                 MessageBox.Show("No hay existencias suficientes", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,14 +91,34 @@ namespace ProyectoGina
 
         private void BTNCARRITOMAINUSU_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormCarrito f = new FormCarrito();
-            f.ShowDialog();
+
         }
 
         private void FormMainUsuario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCarrito f = new FormCarrito();
+            f.ShowDialog();
+        }
+
+        private void buttonRegresarImagen_Click(object sender, EventArgs e)
+        {
+            // Decremento el contador
+            cont--;
+
+            // Validar que el contador no exceda la cantidad de imágenes
+            if (cont >= ImageProductos.Images.Count)
+            {
+                cont = 0; // Reiniciar al inicio
+            }
+
+            // Cambiar la imagen en el PictureBox
+            PICTUREIMAGES.Image = ImageProductos.Images[cont];
         }
     }
 }

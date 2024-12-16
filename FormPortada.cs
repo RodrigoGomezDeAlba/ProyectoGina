@@ -7,10 +7,10 @@ namespace ProyectoGina
         public FormPortada()
         {
             InitializeComponent();
-
+            DATOS.SizeMode = PictureBoxSizeMode.Zoom;
             CCB.SizeMode = PictureBoxSizeMode.Zoom;
             UAALOGO.SizeMode = PictureBoxSizeMode.Zoom;
-            DATOS.SizeMode = PictureBoxSizeMode.Zoom;
+            
 
             // Cargar imágenes automáticamente
             LoadImages();
