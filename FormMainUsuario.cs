@@ -129,6 +129,10 @@ namespace ProyectoGina
             if (cont >= ImageProductos.Images.Count)
             {
                 cont = 0; // Reiniciar al inicio
+            } 
+            else if (cont < 0)
+            {
+                cont = 9;
             }
 
             // Cambiar la imagen en el PictureBox

@@ -37,7 +37,7 @@
             // BTNREGRESARCARRITO
             // 
             BTNREGRESARCARRITO.Location = new Point(44, 613);
-            BTNREGRESARCARRITO.Margin = new Padding(5, 5, 5, 5);
+            BTNREGRESARCARRITO.Margin = new Padding(5);
             BTNREGRESARCARRITO.Name = "BTNREGRESARCARRITO";
             BTNREGRESARCARRITO.Size = new Size(198, 74);
             BTNREGRESARCARRITO.TabIndex = 0;
@@ -48,7 +48,7 @@
             // BTNTICKETCARRITO
             // 
             BTNTICKETCARRITO.Location = new Point(1056, 613);
-            BTNTICKETCARRITO.Margin = new Padding(5, 5, 5, 5);
+            BTNTICKETCARRITO.Margin = new Padding(5);
             BTNTICKETCARRITO.Name = "BTNTICKETCARRITO";
             BTNTICKETCARRITO.Size = new Size(198, 74);
             BTNTICKETCARRITO.TabIndex = 1;
@@ -59,7 +59,7 @@
             // BTNCONFIRMCARRITO
             // 
             BTNCONFIRMCARRITO.Location = new Point(504, 454);
-            BTNCONFIRMCARRITO.Margin = new Padding(5, 5, 5, 5);
+            BTNCONFIRMCARRITO.Margin = new Padding(5);
             BTNCONFIRMCARRITO.Name = "BTNCONFIRMCARRITO";
             BTNCONFIRMCARRITO.Size = new Size(309, 99);
             BTNCONFIRMCARRITO.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             RCHTBLISTAPROD.Enabled = false;
             RCHTBLISTAPROD.Location = new Point(296, 19);
-            RCHTBLISTAPROD.Margin = new Padding(5, 5, 5, 5);
+            RCHTBLISTAPROD.Margin = new Padding(5);
             RCHTBLISTAPROD.Name = "RCHTBLISTAPROD";
             RCHTBLISTAPROD.Size = new Size(716, 401);
             RCHTBLISTAPROD.TabIndex = 3;
@@ -87,7 +87,7 @@
             Controls.Add(BTNCONFIRMCARRITO);
             Controls.Add(BTNTICKETCARRITO);
             Controls.Add(BTNREGRESARCARRITO);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "FormCarrito";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Carrito";

@@ -16,6 +16,7 @@ namespace ProyectoGina
     {
         public string usuario;
         public string contra;
+        private bool visible;
 
         public FormUsuario()
         {
@@ -24,9 +25,11 @@ namespace ProyectoGina
             LOGOSLOGAN.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta la imagen al PictureBox
             usuario = TXTUsuario.Text;
             contra = TXTUsuario.Text;
+            visible = false;
 
             //Cragar imagenes
             LoadImages();
+
         }
 
         private void LoadImages()
@@ -70,6 +73,7 @@ namespace ProyectoGina
 
         private void BTNIngresar_Click(object sender, EventArgs e)
         {
+            
             usuario = TXTUsuario.Text;
             contra = TXTUsuario.Text;
             //aqui va el if de si es igual o no la contraseña y el usuario

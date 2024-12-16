@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuario));
             TXTUsuario = new TextBox();
             TEXTContra = new TextBox();
@@ -37,8 +38,11 @@
             button1 = new Button();
             button2 = new Button();
             pictureBox1 = new PictureBox();
+            pictureBoxOjo = new PictureBox();
+            imageList1 = new ImageList(components);
             ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxOjo).BeginInit();
             SuspendLayout();
             // 
             // TXTUsuario
@@ -136,12 +140,31 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
+            // pictureBoxOjo
+            // 
+            pictureBoxOjo.Image = (Image)resources.GetObject("pictureBoxOjo.Image");
+            pictureBoxOjo.Location = new Point(1060, 510);
+            pictureBoxOjo.Name = "pictureBoxOjo";
+            pictureBoxOjo.Size = new Size(52, 39);
+            pictureBoxOjo.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxOjo.TabIndex = 12;
+            pictureBoxOjo.TabStop = false;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "ojoC.png");
+            imageList1.Images.SetKeyName(1, "ojoA.png");
+            // 
             // FormUsuario
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1300, 720);
+            Controls.Add(pictureBoxOjo);
             Controls.Add(pictureBox1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -157,6 +180,7 @@
             Load += FormUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxOjo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,5 +194,7 @@
         private Button button1;
         private Button button2;
         private PictureBox pictureBox1;
+        private PictureBox pictureBoxOjo;
+        private ImageList imageList1;
     }
 }
