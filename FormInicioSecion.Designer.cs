@@ -28,21 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuario));
             TXTUsuario = new TextBox();
             TEXTContra = new TextBox();
             LOGOSLOGAN = new PictureBox();
             BTNIngresar = new Button();
             BTNSalirF2 = new Button();
-            button1 = new Button();
-            button2 = new Button();
             pictureBox1 = new PictureBox();
-            pictureBoxOjo = new PictureBox();
-            imageList1 = new ImageList(components);
             ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxOjo).BeginInit();
             SuspendLayout();
             // 
             // TXTUsuario
@@ -108,28 +102,6 @@
             BTNSalirF2.UseVisualStyleBackColor = false;
             BTNSalirF2.Click += BTNSalirF2_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(278, 28);
-            button1.Margin = new Padding(5);
-            button1.Name = "button1";
-            button1.Size = new Size(158, 58);
-            button1.TabIndex = 9;
-            button1.Text = "FormUsuario";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(110, 27);
-            button2.Margin = new Padding(5);
-            button2.Name = "button2";
-            button2.Size = new Size(158, 61);
-            button2.TabIndex = 10;
-            button2.Text = "FormAdmin";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -140,34 +112,13 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
-            // pictureBoxOjo
-            // 
-            pictureBoxOjo.Image = (Image)resources.GetObject("pictureBoxOjo.Image");
-            pictureBoxOjo.Location = new Point(1060, 510);
-            pictureBoxOjo.Name = "pictureBoxOjo";
-            pictureBoxOjo.Size = new Size(52, 39);
-            pictureBoxOjo.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBoxOjo.TabIndex = 12;
-            pictureBoxOjo.TabStop = false;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "ojoC.png");
-            imageList1.Images.SetKeyName(1, "ojoA.png");
-            // 
             // FormUsuario
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1300, 720);
-            Controls.Add(pictureBoxOjo);
             Controls.Add(pictureBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(BTNSalirF2);
             Controls.Add(BTNIngresar);
             Controls.Add(LOGOSLOGAN);
@@ -180,7 +131,6 @@
             Load += FormUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)LOGOSLOGAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxOjo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,10 +141,6 @@
         private PictureBox LOGOSLOGAN;
         private Button BTNIngresar;
         private Button BTNSalirF2;
-        private Button button1;
-        private Button button2;
         private PictureBox pictureBox1;
-        private PictureBox pictureBoxOjo;
-        private ImageList imageList1;
     }
 }

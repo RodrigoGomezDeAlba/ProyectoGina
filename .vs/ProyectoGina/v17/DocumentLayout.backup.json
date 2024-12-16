@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\forminiciosecion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:forminiciosecion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formmainusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\forminiciosecion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:forminiciosecion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,36 +35,16 @@
       "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formmainusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\forminiciosecion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:forminiciosecion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formmainusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formcarrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|c:\\users\\rodri\\desktop\\proyectogina\\proyectogina\\formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formmainadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8D07496-D13D-4F07-B6BF-23423255F6BC}|ProyectoGina.csproj|solutionrelative:formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "FormPortada.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormPortada.cs",
               "RelativeDocumentMoniker": "FormPortada.cs",
@@ -71,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "FormInicioSecion.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormInicioSecion.cs",
               "RelativeDocumentMoniker": "FormInicioSecion.cs",
@@ -84,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "FormMainUsuario.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainUsuario.cs",
               "RelativeDocumentMoniker": "FormMainUsuario.cs",
@@ -97,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "FormMainAdmin.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainAdmin.cs",
               "RelativeDocumentMoniker": "FormMainAdmin.cs",
@@ -123,59 +123,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FormInicioSecion.cs",
               "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormInicioSecion.cs",
               "RelativeDocumentMoniker": "FormInicioSecion.cs",
               "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormInicioSecion.cs",
               "RelativeToolTip": "FormInicioSecion.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAwwB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJcAAAAAAAAAAAA8wLUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T17:21:41.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormMainUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainUsuario.cs",
-              "RelativeDocumentMoniker": "FormMainUsuario.cs",
-              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainUsuario.cs",
-              "RelativeToolTip": "FormMainUsuario.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAswIYAAAAYAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "FormMainAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainAdmin.cs",
+              "RelativeDocumentMoniker": "FormMainAdmin.cs",
+              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainAdmin.cs",
+              "RelativeToolTip": "FormMainAdmin.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAUwFsBAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T05:17:46.421Z",
+              "WhenOpened": "2024-12-14T17:41:17.535Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Resources.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\Properties\\Resources.Designer.cs",
-              "RelativeDocumentMoniker": "Properties\\Resources.Designer.cs",
-              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\Properties\\Resources.Designer.cs",
-              "RelativeToolTip": "Properties\\Resources.Designer.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAqwDwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T08:08:15.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormCarrito.cs",
-              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormCarrito.cs",
-              "RelativeDocumentMoniker": "FormCarrito.cs",
-              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormCarrito.cs",
-              "RelativeToolTip": "FormCarrito.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAuwCAAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T00:04:54.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "FormPortada.cs",
               "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormPortada.cs",
               "RelativeDocumentMoniker": "FormPortada.cs",
@@ -188,15 +162,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FormMainAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainAdmin.cs",
-              "RelativeDocumentMoniker": "FormMainAdmin.cs",
-              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainAdmin.cs",
-              "RelativeToolTip": "FormMainAdmin.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "FormCarrito.cs",
+              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormCarrito.cs",
+              "RelativeDocumentMoniker": "FormCarrito.cs",
+              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormCarrito.cs",
+              "RelativeToolTip": "FormCarrito.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAuwCAAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T17:41:17.535Z"
+              "WhenOpened": "2024-12-15T00:04:54.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Resources.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\Properties\\Resources.Designer.cs",
+              "RelativeDocumentMoniker": "Properties\\Resources.Designer.cs",
+              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\Properties\\Resources.Designer.cs",
+              "RelativeToolTip": "Properties\\Resources.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T08:08:15.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormMainUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainUsuario.cs",
+              "RelativeDocumentMoniker": "FormMainUsuario.cs",
+              "ToolTip": "C:\\Users\\rodri\\Desktop\\ProyectoGina\\ProyectoGina\\FormMainUsuario.cs",
+              "RelativeToolTip": "FormMainUsuario.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwHcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T05:17:46.421Z",
+              "EditorCaption": ""
             }
           ]
         }
