@@ -52,3 +52,4 @@ C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\PdfSharp.dll
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\de\PdfSharp.Charting.resources.dll
 C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\bin\Debug\net8.0-windows\de\PdfSharp.resources.dll
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.Properties.Resources.resources

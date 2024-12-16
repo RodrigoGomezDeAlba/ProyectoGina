@@ -9,7 +9,8 @@ namespace ProyectoGina
 {
     public partial class FormCarrito : Form
     {
-        public static double[] vecp;
+        public static double[] vecp; // Precios de los productos
+
         public FormCarrito()
         {
             InitializeComponent();
@@ -22,15 +23,23 @@ namespace ProyectoGina
             // Limpiar el contenido del RichTextBox
             RCHTBLISTAPROD.Clear();
 
-            // Validar que FormMainUsuario.vec y demás elementos están inicializados
-            if (FormMainUsuario.vec != null && FormMainUsuario.vec.Length > 0)
+            // Validar si el carrito tiene productos
+            if (FormMainUsuario.carrito != null && FormMainUsuario.carrito.Count > 0)
             {
-                // Agregar contenido al RichTextBox
-                RCHTBLISTAPROD.AppendText($"{FormMainUsuario.prodc} - {FormMainUsuario.vec[FormMainUsuario.cont]} - ${vecp[FormMainUsuario.cont]}");
+                foreach (var item in FormMainUsuario.carrito)
+                {
+                    string producto = item.Item1;
+                    decimal cantidad = item.Item2;
+                    double precio = vecp[Array.IndexOf(FormMainUsuario.vec, producto)];
+                    decimal subtotal = cantidad * (decimal)precio;
+
+                    // Agregar producto al RichTextBox
+                    RCHTBLISTAPROD.AppendText($"{producto} - Cantidad: {cantidad} - Subtotal: ${subtotal:F2}\n");
+                }
             }
             else
             {
-                RCHTBLISTAPROD.Text = "No hay datos para mostrar.";
+                RCHTBLISTAPROD.Text = "No hay productos en el carrito.";
             }
         }
 
@@ -68,38 +77,34 @@ namespace ProyectoGina
 
                     // Encabezado del ticket
                     gfx.DrawString("Ticket de Compra", font, XBrushes.Black, new XPoint(250, 30));
-                    gfx.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XPoint(50, 80));
+                    gfx.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XPoint(230, 80));
 
                     // Variables para manejar productos y total
-                    string[] productos = RCHTBLISTAPROD.Text.Split('\n');
                     float total = 0;
-
-                    // Imprimir los productos del RichTextBox
                     int yOffset = 120; // Posición inicial para los productos
-                    foreach (string producto in productos)
-                    {
-                        if (!string.IsNullOrWhiteSpace(producto))
-                        {
-                            gfx.DrawString(producto, font, XBrushes.Black, new XPoint(50, yOffset));
-                            yOffset += 20;
 
-                            // Extraer precio del producto y calcular el total
-                            string[] partes = producto.Split('-');
-                            if (partes.Length >= 3 && float.TryParse(partes[2].Trim().Replace("$", ""), out float precio))
-                            {
-                                total += precio;
-                            }
-                        }
+                    // Imprimir los productos desde el carrito
+                    foreach (var item in FormMainUsuario.carrito)
+                    {
+                        string producto = item.Item1;
+                        decimal cantidad = item.Item2;
+                        double precio = vecp[Array.IndexOf(FormMainUsuario.vec, producto)];
+                        decimal subtotal = cantidad * (decimal)precio;
+
+                        gfx.DrawString($"{producto} - Cantidad: {cantidad} - Subtotal: ${subtotal:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
+                        yOffset += 20;
+
+                        total += (float)subtotal;
                     }
 
                     // Mostrar el total al final
-                    gfx.DrawString($"Total a pagar: ${total:F2}", font, XBrushes.Black, new XPoint(50, yOffset + 20));
+                    gfx.DrawString($"Total a pagar: ${total:F2}", font, XBrushes.Black, new XPoint(230, yOffset + 20));
 
                     // Guardar el documento PDF
                     document.Save(filePath);
 
                     // Abrir el PDF generado
-                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(filePath) { UseShellExecute = true });
+                    Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
 
                     MessageBox.Show("Ticket generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
