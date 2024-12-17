@@ -9,9 +9,11 @@ namespace ProyectoGina
 {
     public partial class FormCarrito : Form
     {
+        public static decimal st;//subtotal
+
         private MySqlConnection connection;
         private string usuarioActual;
-        private decimal montoTotal = 0;
+        public static decimal montoTotal = 0;
 
         public FormCarrito(string nombreUsuario)
         {
@@ -155,6 +157,7 @@ namespace ProyectoGina
                 decimal subtotal = cantidad * (decimal)precio;
                 decimal comision = subtotal * 0.06m;
                 decimal totalConComision = subtotal + comision;
+                st = subtotal;
 
                 gfx.DrawString($"{producto} - Cantidad: {cantidad}", font, XBrushes.Black, new XPoint(50, yOffset));
                 yOffset += 20;
@@ -202,6 +205,12 @@ namespace ProyectoGina
         private void LBLUSUARIO_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BTNCONFIRMCARRITO_Click_1(object sender, EventArgs e)
+        {
+            FormMetodosPago f=new FormMetodosPago();
+            f.ShowDialog();
         }
     }
 }

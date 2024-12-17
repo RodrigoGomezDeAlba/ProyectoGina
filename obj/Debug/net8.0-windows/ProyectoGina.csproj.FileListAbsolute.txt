@@ -166,3 +166,7 @@ D:\tuntu\Videos\ProyectoGinaFinal\ProyectoGina\obj\Debug\net8.0-windows\refint\P
 D:\tuntu\Videos\ProyectoGinaFinal\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.pdb
 D:\tuntu\Videos\ProyectoGinaFinal\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.genruntimeconfig.cache
 D:\tuntu\Videos\ProyectoGinaFinal\ProyectoGina\obj\Debug\net8.0-windows\ref\ProyectoGina.dll
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormEfectivo.resources
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.Formtarjeta.resources
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormMetodosPago.resources
+C:\Users\manue\OneDrive\Documentos\UAA\Semestre 3\Programacion 2\Proyecto final\ProyectoGina\obj\Debug\net8.0-windows\ProyectoGina.FormOxxo.resources

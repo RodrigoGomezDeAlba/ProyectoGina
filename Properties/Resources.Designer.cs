@@ -143,6 +143,16 @@ namespace ProyectoGina.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OXXOQR {
+            get {
+                object obj = ResourceManager.GetObject("OXXOQR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ParfumsMarlyLayton {
             get {
                 object obj = ResourceManager.GetObject("ParfumsMarlyLayton", resourceCulture);
