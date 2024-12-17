@@ -42,7 +42,7 @@
             // 
             // BTNPortadaSalir
             // 
-            BTNPortadaSalir.BackColor = Color.Gainsboro;
+            BTNPortadaSalir.BackColor = Color.FromArgb(255, 128, 128);
             BTNPortadaSalir.Cursor = Cursors.Hand;
             BTNPortadaSalir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTNPortadaSalir.Location = new Point(39, 610);

@@ -90,7 +90,7 @@
             // 
             // BTNSalirF2
             // 
-            BTNSalirF2.BackColor = Color.Gainsboro;
+            BTNSalirF2.BackColor = Color.FromArgb(255, 128, 128);
             BTNSalirF2.Cursor = Cursors.Hand;
             BTNSalirF2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTNSalirF2.Location = new Point(39, 610);

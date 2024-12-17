@@ -70,6 +70,7 @@
             // BTNPASARIMAGEN
             // 
             BTNPASARIMAGEN.BackColor = Color.FromArgb(244, 169, 0);
+            BTNPASARIMAGEN.Cursor = Cursors.Hand;
             BTNPASARIMAGEN.Font = new Font("Segoe UI", 7.875F, FontStyle.Bold);
             BTNPASARIMAGEN.Location = new Point(367, 512);
             BTNPASARIMAGEN.Margin = new Padding(5);
@@ -95,7 +96,8 @@
             // 
             // BTNSALIRMAINUSU
             // 
-            BTNSALIRMAINUSU.BackColor = Color.Gainsboro;
+            BTNSALIRMAINUSU.BackColor = Color.FromArgb(255, 128, 128);
+            BTNSALIRMAINUSU.Cursor = Cursors.Hand;
             BTNSALIRMAINUSU.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTNSALIRMAINUSU.Location = new Point(39, 610);
             BTNSALIRMAINUSU.Margin = new Padding(5);
@@ -108,20 +110,22 @@
             // 
             // BTNLOGOUTMAINUSER
             // 
-            BTNLOGOUTMAINUSER.BackColor = Color.FromArgb(255, 128, 128);
+            BTNLOGOUTMAINUSER.BackColor = Color.Gainsboro;
+            BTNLOGOUTMAINUSER.Cursor = Cursors.Hand;
             BTNLOGOUTMAINUSER.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTNLOGOUTMAINUSER.Location = new Point(1096, 610);
             BTNLOGOUTMAINUSER.Margin = new Padding(5);
             BTNLOGOUTMAINUSER.Name = "BTNLOGOUTMAINUSER";
             BTNLOGOUTMAINUSER.Size = new Size(166, 78);
             BTNLOGOUTMAINUSER.TabIndex = 4;
-            BTNLOGOUTMAINUSER.Text = "LOG OUT";
+            BTNLOGOUTMAINUSER.Text = "Log Out";
             BTNLOGOUTMAINUSER.UseVisualStyleBackColor = false;
             BTNLOGOUTMAINUSER.Click += BTNLOGOUTMAINUSER_Click;
             // 
             // BTNCOMPRARMAINUSU
             // 
             BTNCOMPRARMAINUSU.BackColor = Color.FromArgb(192, 255, 192);
+            BTNCOMPRARMAINUSU.Cursor = Cursors.Hand;
             BTNCOMPRARMAINUSU.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTNCOMPRARMAINUSU.Location = new Point(895, 511);
             BTNCOMPRARMAINUSU.Margin = new Padding(5);
@@ -156,6 +160,7 @@
             // buttonRegresarImagen
             // 
             buttonRegresarImagen.BackColor = Color.FromArgb(244, 169, 0);
+            buttonRegresarImagen.Cursor = Cursors.Hand;
             buttonRegresarImagen.Font = new Font("Segoe UI", 7.875F, FontStyle.Bold);
             buttonRegresarImagen.Location = new Point(291, 512);
             buttonRegresarImagen.Margin = new Padding(5);
@@ -170,7 +175,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(245, 140, 0);
-            pictureBox1.Location = new Point(-13, -4);
+            pictureBox1.Location = new Point(-13, -5);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1355, 115);
             pictureBox1.TabIndex = 10;
@@ -198,9 +203,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(111, 36);
+            pictureBox3.Location = new Point(104, 12);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(190, 60);
+            pictureBox3.Size = new Size(253, 84);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
