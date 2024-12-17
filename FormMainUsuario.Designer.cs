@@ -40,9 +40,10 @@
             pictureBoxCarrito = new PictureBox();
             buttonRegresarImagen = new Button();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            LBLPRODUCTONOMBRE = new Label();
+            LBLPRODUCTOPRECIO = new Label();
             ((System.ComponentModel.ISupportInitialize)PICTUREIMAGES).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CONTADORPRODMAINUSU).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCarrito).BeginInit();
@@ -181,15 +182,6 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(648, 272);
-            label1.Name = "label1";
-            label1.Size = new Size(488, 96);
-            label1.TabIndex = 11;
-            label1.Text = "AQUI VA EL TEXTO DE LA INFORMACION \r\nDE LOS PERFUMES, CLARAMANTE QUE \r\nCAMBIE DEPENDEIENDO DEL PERFUME VEA ";
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -210,15 +202,36 @@
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
             // 
+            // LBLPRODUCTONOMBRE
+            // 
+            LBLPRODUCTONOMBRE.AutoSize = true;
+            LBLPRODUCTONOMBRE.Font = new Font("Segoe UI", 10.875F);
+            LBLPRODUCTONOMBRE.Location = new Point(654, 311);
+            LBLPRODUCTONOMBRE.Name = "LBLPRODUCTONOMBRE";
+            LBLPRODUCTONOMBRE.Size = new Size(160, 40);
+            LBLPRODUCTONOMBRE.TabIndex = 14;
+            LBLPRODUCTONOMBRE.Text = "NombreBD";
+            // 
+            // LBLPRODUCTOPRECIO
+            // 
+            LBLPRODUCTOPRECIO.AutoSize = true;
+            LBLPRODUCTOPRECIO.Font = new Font("Segoe UI", 10.875F);
+            LBLPRODUCTOPRECIO.Location = new Point(654, 415);
+            LBLPRODUCTOPRECIO.Name = "LBLPRODUCTOPRECIO";
+            LBLPRODUCTOPRECIO.Size = new Size(132, 40);
+            LBLPRODUCTOPRECIO.TabIndex = 15;
+            LBLPRODUCTOPRECIO.Text = "PrecioBD";
+            // 
             // FormMainUsuario
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1300, 720);
+            Controls.Add(LBLPRODUCTOPRECIO);
+            Controls.Add(LBLPRODUCTONOMBRE);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
-            Controls.Add(label1);
             Controls.Add(pictureBoxCarrito);
             Controls.Add(pictureBox1);
             Controls.Add(buttonRegresarImagen);
@@ -255,8 +268,9 @@
         private PictureBox pictureBoxCarrito;
         private Button buttonRegresarImagen;
         private PictureBox pictureBox1;
-        private Label label1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Label LBLPRODUCTONOMBRE;
+        private Label LBLPRODUCTOPRECIO;
     }
 }

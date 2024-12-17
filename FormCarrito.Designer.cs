@@ -36,6 +36,7 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
+            LBLUSUARIO = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -122,12 +123,22 @@
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
+            // LBLUSUARIO
+            // 
+            LBLUSUARIO.AutoSize = true;
+            LBLUSUARIO.Location = new Point(489, 64);
+            LBLUSUARIO.Name = "LBLUSUARIO";
+            LBLUSUARIO.Size = new Size(94, 32);
+            LBLUSUARIO.TabIndex = 16;
+            LBLUSUARIO.Text = "Usuario";
+            // 
             // FormCarrito
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(815, 864);
+            Controls.Add(LBLUSUARIO);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(RCHTBLISTAPROD);
@@ -144,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -155,5 +167,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
+        private Label LBLUSUARIO;
     }
 }

@@ -45,8 +45,6 @@
             TextBoxId = new TextBox();
             TextBoxExistencias = new TextBox();
             TextBoxPrecio = new TextBox();
-            TextBoxDescripcion = new TextBox();
-            TextBoxImagen = new TextBox();
             textBoxEliminar = new TextBox();
             SuspendLayout();
             // 
@@ -83,7 +81,7 @@
             buttonDatos.BackColor = Color.FromArgb(255, 224, 192);
             buttonDatos.Cursor = Cursors.Hand;
             buttonDatos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonDatos.Location = new Point(1017, 45);
+            buttonDatos.Location = new Point(1019, 169);
             buttonDatos.Margin = new Padding(5);
             buttonDatos.Name = "buttonDatos";
             buttonDatos.Size = new Size(243, 62);
@@ -234,7 +232,7 @@
             // 
             TextBoxId.Cursor = Cursors.IBeam;
             TextBoxId.ForeColor = Color.Blue;
-            TextBoxId.Location = new Point(824, 68);
+            TextBoxId.Location = new Point(824, 192);
             TextBoxId.Margin = new Padding(6);
             TextBoxId.Name = "TextBoxId";
             TextBoxId.PlaceholderText = "Id a modificar";
@@ -266,30 +264,6 @@
             TextBoxPrecio.TabIndex = 16;
             TextBoxPrecio.TextAlign = HorizontalAlignment.Center;
             // 
-            // TextBoxDescripcion
-            // 
-            TextBoxDescripcion.Cursor = Cursors.IBeam;
-            TextBoxDescripcion.ForeColor = Color.Black;
-            TextBoxDescripcion.Location = new Point(824, 192);
-            TextBoxDescripcion.Margin = new Padding(6);
-            TextBoxDescripcion.Name = "TextBoxDescripcion";
-            TextBoxDescripcion.PlaceholderText = "Descripción";
-            TextBoxDescripcion.Size = new Size(182, 39);
-            TextBoxDescripcion.TabIndex = 17;
-            TextBoxDescripcion.TextAlign = HorizontalAlignment.Center;
-            // 
-            // TextBoxImagen
-            // 
-            TextBoxImagen.Cursor = Cursors.IBeam;
-            TextBoxImagen.ForeColor = Color.Black;
-            TextBoxImagen.Location = new Point(824, 130);
-            TextBoxImagen.Margin = new Padding(6);
-            TextBoxImagen.Name = "TextBoxImagen";
-            TextBoxImagen.PlaceholderText = "Imagen";
-            TextBoxImagen.Size = new Size(182, 39);
-            TextBoxImagen.TabIndex = 18;
-            TextBoxImagen.TextAlign = HorizontalAlignment.Center;
-            // 
             // textBoxEliminar
             // 
             textBoxEliminar.Cursor = Cursors.IBeam;
@@ -309,8 +283,6 @@
             BackColor = Color.White;
             ClientSize = new Size(1300, 721);
             Controls.Add(textBoxEliminar);
-            Controls.Add(TextBoxImagen);
-            Controls.Add(TextBoxDescripcion);
             Controls.Add(TextBoxPrecio);
             Controls.Add(TextBoxExistencias);
             Controls.Add(TextBoxId);
@@ -356,8 +328,6 @@
         private TextBox TextBoxId;
         private TextBox TextBoxExistencias;
         private TextBox TextBoxPrecio;
-        private TextBox TextBoxDescripcion;
-        private TextBox TextBoxImagen;
         private TextBox textBoxEliminar;
     }
 }

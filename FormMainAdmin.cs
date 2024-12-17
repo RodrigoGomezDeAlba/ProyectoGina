@@ -254,7 +254,7 @@ namespace ProyectoGina
             });
 
             obj.Disconnect();
-            
+
         }
 
         private void BTNADMINALTAS_Click_1(object sender, EventArgs e)
@@ -288,10 +288,8 @@ namespace ProyectoGina
             double precio;
             string imagen, descripcion;
 
-           
+
             if (string.IsNullOrWhiteSpace(TextBoxId.Text) ||
-                string.IsNullOrWhiteSpace(TextBoxImagen.Text) ||
-                string.IsNullOrWhiteSpace(TextBoxDescripcion.Text) ||
                 string.IsNullOrWhiteSpace(TextBoxPrecio.Text) ||
                 string.IsNullOrWhiteSpace(TextBoxExistencias.Text))
             {
@@ -317,10 +315,8 @@ namespace ProyectoGina
                 return;
             }
 
-
-            imagen = TextBoxImagen.Text;
-            descripcion = TextBoxDescripcion.Text;
-
+            imagen=null;
+            descripcion=null;
 
             try
             {
@@ -344,8 +340,6 @@ namespace ProyectoGina
 
 
             this.TextBoxId.Text = Convert.ToString(aux.Id);
-            this.TextBoxImagen.Text = aux.Imagen;
-            this.TextBoxDescripcion.Text = aux.Descripcion;
             this.TextBoxPrecio.Text = Convert.ToString(aux.Precio);
             this.TextBoxExistencias.Text = Convert.ToString(aux.Existencia);
 
