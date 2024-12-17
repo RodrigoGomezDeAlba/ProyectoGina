@@ -47,10 +47,10 @@
             BTNREGRESARCARRITO.BackColor = Color.FromArgb(192, 255, 255);
             BTNREGRESARCARRITO.Cursor = Cursors.Hand;
             BTNREGRESARCARRITO.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNREGRESARCARRITO.Location = new Point(44, 748);
-            BTNREGRESARCARRITO.Margin = new Padding(5);
+            BTNREGRESARCARRITO.Location = new Point(24, 351);
+            BTNREGRESARCARRITO.Margin = new Padding(3, 2, 3, 2);
             BTNREGRESARCARRITO.Name = "BTNREGRESARCARRITO";
-            BTNREGRESARCARRITO.Size = new Size(154, 74);
+            BTNREGRESARCARRITO.Size = new Size(83, 35);
             BTNREGRESARCARRITO.TabIndex = 0;
             BTNREGRESARCARRITO.Text = "Regresar";
             BTNREGRESARCARRITO.UseVisualStyleBackColor = false;
@@ -61,10 +61,10 @@
             BTNTICKETCARRITO.BackColor = Color.FromArgb(192, 192, 255);
             BTNTICKETCARRITO.Cursor = Cursors.Hand;
             BTNTICKETCARRITO.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNTICKETCARRITO.Location = new Point(567, 748);
-            BTNTICKETCARRITO.Margin = new Padding(5);
+            BTNTICKETCARRITO.Location = new Point(305, 351);
+            BTNTICKETCARRITO.Margin = new Padding(3, 2, 3, 2);
             BTNTICKETCARRITO.Name = "BTNTICKETCARRITO";
-            BTNTICKETCARRITO.Size = new Size(198, 74);
+            BTNTICKETCARRITO.Size = new Size(107, 35);
             BTNTICKETCARRITO.TabIndex = 1;
             BTNTICKETCARRITO.Text = "Generar Ticket";
             BTNTICKETCARRITO.UseVisualStyleBackColor = false;
@@ -75,10 +75,10 @@
             BTNCONFIRMCARRITO.BackColor = Color.FromArgb(192, 255, 192);
             BTNCONFIRMCARRITO.Cursor = Cursors.Hand;
             BTNCONFIRMCARRITO.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNCONFIRMCARRITO.Location = new Point(208, 748);
-            BTNCONFIRMCARRITO.Margin = new Padding(5);
+            BTNCONFIRMCARRITO.Location = new Point(112, 351);
+            BTNCONFIRMCARRITO.Margin = new Padding(3, 2, 3, 2);
             BTNCONFIRMCARRITO.Name = "BTNCONFIRMCARRITO";
-            BTNCONFIRMCARRITO.Size = new Size(349, 74);
+            BTNCONFIRMCARRITO.Size = new Size(188, 35);
             BTNCONFIRMCARRITO.TabIndex = 2;
             BTNCONFIRMCARRITO.Text = "Confirmar Compra";
             BTNCONFIRMCARRITO.UseVisualStyleBackColor = false;
@@ -86,10 +86,10 @@
             // RCHTBLISTAPROD
             // 
             RCHTBLISTAPROD.Enabled = false;
-            RCHTBLISTAPROD.Location = new Point(44, 118);
-            RCHTBLISTAPROD.Margin = new Padding(5);
+            RCHTBLISTAPROD.Location = new Point(24, 55);
+            RCHTBLISTAPROD.Margin = new Padding(3, 2, 3, 2);
             RCHTBLISTAPROD.Name = "RCHTBLISTAPROD";
-            RCHTBLISTAPROD.Size = new Size(721, 601);
+            RCHTBLISTAPROD.Size = new Size(390, 284);
             RCHTBLISTAPROD.TabIndex = 3;
             RCHTBLISTAPROD.Text = "";
             RCHTBLISTAPROD.TextChanged += RCHTBLISTAPROD_TextChanged;
@@ -97,9 +97,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Location = new Point(6, 6);
+            pictureBox2.Margin = new Padding(2, 1, 2, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(93, 84);
+            pictureBox2.Size = new Size(50, 39);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 13;
             pictureBox2.TabStop = false;
@@ -107,9 +108,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(105, 12);
+            pictureBox3.Location = new Point(57, 6);
+            pictureBox3.Margin = new Padding(2, 1, 2, 1);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(253, 84);
+            pictureBox3.Size = new Size(136, 39);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
@@ -117,27 +119,30 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(245, 140, 0);
-            pictureBox1.Location = new Point(-270, -5);
+            pictureBox1.Location = new Point(-145, -2);
+            pictureBox1.Margin = new Padding(2, 1, 2, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1355, 115);
+            pictureBox1.Size = new Size(730, 54);
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
             // LBLUSUARIO
             // 
             LBLUSUARIO.AutoSize = true;
-            LBLUSUARIO.Location = new Point(489, 64);
+            LBLUSUARIO.Font = new Font("Segoe UI", 10.875F);
+            LBLUSUARIO.Location = new Point(305, 9);
+            LBLUSUARIO.Margin = new Padding(2, 0, 2, 0);
             LBLUSUARIO.Name = "LBLUSUARIO";
-            LBLUSUARIO.Size = new Size(94, 32);
-            LBLUSUARIO.TabIndex = 16;
-            LBLUSUARIO.Text = "Usuario";
+            LBLUSUARIO.Size = new Size(70, 20);
+            LBLUSUARIO.TabIndex = 24;
+            LBLUSUARIO.Text = "PrecioBD";
             // 
             // FormCarrito
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(815, 864);
+            ClientSize = new Size(439, 405);
             Controls.Add(LBLUSUARIO);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -146,7 +151,7 @@
             Controls.Add(BTNTICKETCARRITO);
             Controls.Add(BTNREGRESARCARRITO);
             Controls.Add(pictureBox1);
-            Margin = new Padding(5);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormCarrito";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Carrito";

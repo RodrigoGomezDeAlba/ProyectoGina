@@ -15,20 +15,21 @@ namespace ProyectoGina
         public static bool flag;
         public static List<Tuple<string, decimal>> carrito;
         private List<Tuple<string, decimal>> productos;
-        private List<Tuple<string, decimal, Image>> productosConImagen;
-
-        public FormMainUsuario()
+        private List<Tuple<string, decimal, int, Image>> productosConImagen;
+        private string usuarioActual;
+        public FormMainUsuario(string nombreUsuario)
         {
             InitializeComponent();
-
-
+            usuarioActual = nombreUsuario; 
+            labelNombre.Text = $"{usuarioActual}";
             PICTUREIMAGES.SizeMode = PictureBoxSizeMode.Zoom;
+
 
 
             productos = new List<Tuple<string, decimal>>();
             carrito = new List<Tuple<string, decimal>>();
             vec = new List<string>();
-            productosConImagen = new List<Tuple<string, decimal, Image>>();
+            productosConImagen = new List<Tuple<string, decimal, int, Image>>();
 
             Connect();
             CargarProductos();
@@ -63,34 +64,31 @@ namespace ProyectoGina
         {
             try
             {
-                string query = "SELECT descripcion, precio FROM productos";
+                string query = "SELECT descripcion, imagen, precio, existencia FROM productos";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                int imageIndex = 0;
-
                 while (reader.Read())
                 {
-                    string nombre = reader["descripcion"].ToString();
+                    string descripcion = reader["descripcion"].ToString();
+                    string nombreImagen = reader["imagen"].ToString();
                     decimal precio = Convert.ToDecimal(reader["precio"]);
+                    int existencia = Convert.ToInt32(reader["existencia"]);
 
-
-                    if (imageIndex < ImageProductos.Images.Count)
+                    Image imagenProducto = null;
+                    if (ImageProductos.Images.ContainsKey(nombreImagen))
                     {
-                        Image imagenProducto = ImageProductos.Images[imageIndex];
-                        productosConImagen.Add(new Tuple<string, decimal, Image>(nombre, precio, imagenProducto));
+                        imagenProducto = ImageProductos.Images[nombreImagen];
                     }
                     else
                     {
-                        MessageBox.Show($"No hay suficientes imágenes para el producto '{nombre}'", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        break;
+                        imagenProducto = Image.FromFile("ruta/a/imagen/por_defecto.jpg");
                     }
 
-                    imageIndex++;
+                    productosConImagen.Add(new Tuple<string, decimal, int, Image>(descripcion, precio, existencia, imagenProducto));
                 }
 
                 reader.Close();
-
 
                 if (productosConImagen.Count > 0)
                 {
@@ -110,9 +108,10 @@ namespace ProyectoGina
             if (index >= 0 && index < productosConImagen.Count)
             {
                 var producto = productosConImagen[index];
-                PICTUREIMAGES.Image = producto.Item3;
+                PICTUREIMAGES.Image = producto.Item4;
                 LBLPRODUCTONOMBRE.Text = producto.Item1;
                 LBLPRODUCTOPRECIO.Text = $"${producto.Item2}";
+                LBLPRODUCTOEXISTENCIAS.Text = $"Existencia: {producto.Item3}";
             }
         }
 
@@ -150,16 +149,21 @@ namespace ProyectoGina
         {
             if (CONTADORPRODMAINUSU.Value > 0)
             {
-                prodc = CONTADORPRODMAINUSU.Value;
-
-
                 var productoActual = productosConImagen[cont];
-                carrito.Add(new Tuple<string, decimal>(productoActual.Item1, prodc));
 
+                if (CONTADORPRODMAINUSU.Value <= productoActual.Item3)
+                {
+                    prodc = CONTADORPRODMAINUSU.Value;
+                    carrito.Add(new Tuple<string, decimal>(productoActual.Item1, prodc));
 
-                CONTADORPRODMAINUSU.Value = 0;
+                    CONTADORPRODMAINUSU.Value = 0;
 
-                MessageBox.Show("La fragancia se agregó al carrito", "¡Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La fragancia se agregó al carrito", "¡Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"No hay suficientes existencias para '{productoActual.Item1}'. Disponibles: {productoActual.Item3}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -185,18 +189,14 @@ namespace ProyectoGina
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            string nombreUsuario = "usuarioEjemplo";
-
-
-            FormCarrito formCarrito = new FormCarrito(nombreUsuario);
-
-
+            FormCarrito formCarrito = new FormCarrito(usuarioActual);
             this.Hide();
-
-
             formCarrito.ShowDialog();
         }
 
+        private void labelNombre_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

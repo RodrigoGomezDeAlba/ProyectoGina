@@ -21,12 +21,9 @@ namespace ProyectoGina
         {
             InitializeComponent();
             this.Connect();
-            LOGOSLOGAN.SizeMode = PictureBoxSizeMode.Zoom; // Ajusta la imagen al PictureBox
+            LOGOSLOGAN.SizeMode = PictureBoxSizeMode.Zoom; 
             usuario = TXTUsuario.Text;
-            contra = TEXTContra.Text;
-
-
-            //Cragar imagenes
+            contra = TEXTContra.Text;           
             LoadImages();
         }
         private MySqlConnection connection;
@@ -90,14 +87,14 @@ namespace ProyectoGina
                         {
                             MessageBox.Show($"Bienvenido, administrador. Entrando como {nombreusuario}.", "Acceso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
-                            FormMainAdmin form4 = new FormMainAdmin();
+                            FormMainAdmin form4 = new FormMainAdmin(nombreusuario);
                             form4.ShowDialog();
                         }
                         else
                         {
                             MessageBox.Show($"Bienvenido, {nombreusuario}. Disfruta tu estadía en LFR perfumery.", "Acceso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
-                            FormMainUsuario form3 = new FormMainUsuario();
+                            FormMainUsuario form3 = new FormMainUsuario(nombreusuario);
                             form3.ShowDialog();
                         }
                     }
@@ -128,15 +125,9 @@ namespace ProyectoGina
 
         private Image LoadImageFromPath(string imagePath)
         {
-            if (File.Exists(imagePath))
-            {
+        
                 return Image.FromFile(imagePath);
-            }
-            else
-            {
-                MessageBox.Show($"No se encontró la imagen en la ruta: {imagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
+           
         }
 
         private void FormUsuario_Load(object sender, EventArgs e)
@@ -168,14 +159,14 @@ namespace ProyectoGina
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormMainUsuario form3 = new FormMainUsuario();
+            FormMainUsuario form3 = new FormMainUsuario("usuarioActual");
             form3.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormMainAdmin form4 = new FormMainAdmin();
+            FormMainAdmin form4 = new FormMainAdmin("usuarioActual");
             form4.ShowDialog();
         }
     }

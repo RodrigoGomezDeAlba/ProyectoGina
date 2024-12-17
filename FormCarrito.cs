@@ -16,7 +16,7 @@ namespace ProyectoGina
         public FormCarrito(string nombreUsuario)
         {
             InitializeComponent();
-            usuarioActual = nombreUsuario;  // Asigna el nombre del usuario al campo de clase
+            usuarioActual = nombreUsuario;
             Connect();
         }
 
@@ -48,7 +48,7 @@ namespace ProyectoGina
 
         private void FormCarrito_Load(object sender, EventArgs e)
         {
-            LBLUSUARIO.Text = $"Usuario: {usuarioActual}";
+            LBLUSUARIO.Text = $"{usuarioActual}";
             CargarProductosCarrito();
         }
 
@@ -59,17 +59,17 @@ namespace ProyectoGina
                 RCHTBLISTAPROD.Clear();
                 RCHTBLISTAPROD.AppendText("Lista de Productos: \n");
 
-                montoTotal = 0;
+                decimal subtotalgeneral = 0;
+                decimal comisiontotal = 0;
 
                 foreach (var item in FormMainUsuario.carrito)
                 {
                     string producto = item.Item1;
                     decimal cantidad = item.Item2;
 
-
                     string query = $"SELECT precio FROM productos WHERE descripcion = '{producto}'";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    MySqlCommand cargar = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = cargar.ExecuteReader();
 
                     double precio = 0.0;
                     if (reader.Read())
@@ -79,11 +79,23 @@ namespace ProyectoGina
                     reader.Close();
 
                     decimal subtotal = cantidad * (decimal)precio;
-                    RCHTBLISTAPROD.AppendText($"{producto} - Cantidad: {cantidad} - Subtotal: ${subtotal:F2}\n");
-                    montoTotal += subtotal;
+                    decimal comision = subtotal * 0.06m;
+                    decimal totalcomision = subtotal + comision;
+
+                    RCHTBLISTAPROD.AppendText($"{producto} - Cantidad: {cantidad}\n");
+                    RCHTBLISTAPROD.AppendText($"Subtotal: ${subtotal:F2}\n");
+                    RCHTBLISTAPROD.AppendText($"Comisión (6%): ${comision:F2}\n");
+                    RCHTBLISTAPROD.AppendText($"Total con Comisión: ${totalcomision:F2}\n\n");
+
+                    subtotalgeneral += subtotal;
+                    comisiontotal += comision;
                 }
 
-                RCHTBLISTAPROD.AppendText($"\nTotal a pagar: ${montoTotal:F2}");
+                montoTotal = subtotalgeneral + comisiontotal;
+
+                RCHTBLISTAPROD.AppendText($"Subtotal General: ${subtotalgeneral:F2}\n");
+                RCHTBLISTAPROD.AppendText($"Comisión Total (6%): ${comisiontotal:F2}\n");
+                RCHTBLISTAPROD.AppendText($"Total a Pagar: ${montoTotal:F2}\n");
             }
             catch (Exception ex)
             {
@@ -107,10 +119,8 @@ namespace ProyectoGina
                 {
                     string filePath = saveFileDialog.FileName;
                     GenerarPDFTicket(filePath);
-                    ActualizarBaseDeDatos();
                     Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
 
-                    MessageBox.Show("Ticket generado y base de datos actualizada.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -130,55 +140,52 @@ namespace ProyectoGina
             gfx.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XPoint(230, 80));
 
             int yOffset = 120;
+            decimal subtotalGeneral = 0;
+            decimal comisionTotal = 0;
+
             foreach (var item in FormMainUsuario.carrito)
             {
                 string producto = item.Item1;
                 decimal cantidad = item.Item2;
 
                 string query = $"SELECT precio FROM productos WHERE descripcion = '{producto}'";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                double precio = Convert.ToDouble(cmd.ExecuteScalar());
+                MySqlCommand ticket = new MySqlCommand(query, connection);
+                double precio = Convert.ToDouble(ticket.ExecuteScalar());
 
                 decimal subtotal = cantidad * (decimal)precio;
+                decimal comision = subtotal * 0.06m;
+                decimal totalConComision = subtotal + comision;
 
-                gfx.DrawString($"{producto} - Cantidad: {cantidad} - Subtotal: ${subtotal:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
+                gfx.DrawString($"{producto} - Cantidad: {cantidad}", font, XBrushes.Black, new XPoint(50, yOffset));
                 yOffset += 20;
+                gfx.DrawString($"Subtotal: ${subtotal:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
+                yOffset += 20;
+                gfx.DrawString($"Comisión del 6%: ${comision:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
+                yOffset += 20;
+                gfx.DrawString($"Total con Comisión: ${totalConComision:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
+                yOffset += 30;
+
+                subtotalGeneral += subtotal;
+                comisionTotal += comision;
             }
 
-            gfx.DrawString($"Total a pagar: ${montoTotal:F2}", font, XBrushes.Black, new XPoint(230, yOffset + 20));
+            montoTotal = subtotalGeneral + comisionTotal;
+
+            gfx.DrawString($"Subtotal General: ${subtotalGeneral:F2}", font, XBrushes.Black, new XPoint(230, yOffset));
+            yOffset += 20;
+            gfx.DrawString($"Comisión Total (6%): ${comisionTotal:F2}", font, XBrushes.Black, new XPoint(230, yOffset));
+            yOffset += 20;
+            gfx.DrawString($"Total a Pagar: ${montoTotal:F2}", font, XBrushes.Black, new XPoint(230, yOffset + 20));
+
             document.Save(filePath);
         }
 
-        private void ActualizarBaseDeDatos()
-        {
-            try
-            {
-                foreach (var item in FormMainUsuario.carrito)
-                {
-                    string producto = item.Item1;
-                    decimal cantidad = item.Item2;
 
-                    string queryExistencias = $"UPDATE productos SET existenciaa = existenciaa - {cantidad} WHERE descripcion = '{producto}'";
-                    MySqlCommand Existencias = new MySqlCommand(queryExistencias, connection);
-                    Existencias.ExecuteNonQuery();
-                }
-
-                // Actualizar monto del usuario
-                string queryMonto = $"UPDATE login SET monto = monto + {montoTotal} WHERE nombre = '{usuarioActual}'";
-                MySqlCommand Monto = new MySqlCommand(queryMonto, connection);
-                Monto.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al actualizar la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Disconnect();
-            }
-        }
 
         private void BTNREGRESARCARRITO_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormMainUsuario f = new FormMainUsuario();
+            FormMainUsuario f = new FormMainUsuario(usuarioActual);
             f.ShowDialog();
         }
 
@@ -189,44 +196,12 @@ namespace ProyectoGina
 
         private void BTNCONFIRMCARRITO_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Verificar si el carrito tiene productos
-                if (FormMainUsuario.carrito.Count == 0)
-                {
-                    MessageBox.Show("No hay productos en el carrito para confirmar la compra.", "Carrito Vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
-                // Actualizar la base de datos
-                foreach (var item in FormMainUsuario.carrito)
-                {
-                    string producto = item.Item1;
-                    decimal cantidad = item.Item2;
+        }
 
-                    // Restar existencias
-                    string queryExistencias = $"UPDATE productos SET existencia = existencia - {cantidad} WHERE descripcion = '{producto}'";
-                    MySqlCommand cmdExistencias = new MySqlCommand(queryExistencias, connection);
-                    cmdExistencias.ExecuteNonQuery();
-                }
+        private void LBLUSUARIO_Click(object sender, EventArgs e)
+        {
 
-                // Actualizar el monto total del usuario
-                string queryMonto = $"UPDATE login SET monto = monto + {montoTotal} WHERE nombre = '{usuarioActual}'";
-                MySqlCommand cmdMonto = new MySqlCommand(queryMonto, connection);
-                cmdMonto.ExecuteNonQuery();
-
-                // Mostrar mensaje de confirmación
-                MessageBox.Show($"Acabas de comprar los productos con un monto total de ${montoTotal:F2}.\n¡Compra exitosa!",
-                    "Compra Confirmada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Reiniciar carrito y refrescar lista
-                FormMainUsuario.carrito.Clear();
-                CargarProductosCarrito();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al confirmar la compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ProyectoGina
             DATOS.SizeMode = PictureBoxSizeMode.Zoom;
             CCB.SizeMode = PictureBoxSizeMode.Zoom;
             UAALOGO.SizeMode = PictureBoxSizeMode.Zoom;
-            
+
 
             // Cargar imágenes automáticamente
             LoadImages();
@@ -52,6 +52,11 @@ namespace ProyectoGina
             this.Hide();
             FormUsuario form2 = new FormUsuario();
             form2.ShowDialog();
+        }
+
+        private void CCB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

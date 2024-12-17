@@ -23,11 +23,13 @@ namespace ProyectoGina
         private string descripcion;
         private double precio;
         private int existencia;
-        public FormMainAdmin()
+        private string adminActual;
+        public FormMainAdmin(string nombreAdmin)
         {
-            InitializeComponent();
-            this.Connect();
-
+            InitializeComponent(); 
+            adminActual = nombreAdmin;
+            labelNOMBRE.Text = $"{adminActual}";
+            Connect();
         }
         public FormMainAdmin(int id, string imagen, string descripcion, double precio, int existencia)
         {
@@ -219,12 +221,12 @@ namespace ProyectoGina
         }
 
 
-        public void actualizar(int idp, string img, string desc, double price, int ext)
+        public void actualizar(int idp, double price, int ext)
         {
 
             try
             {
-                string query = "UPDATE productos SET id=" + "'" + idp + "'" + ",imagen=" + "'" + img + "'" + ",descripcion=" + "'" + desc + "'" + ",precio=" + "'" + price + "'" + ",existencia=" + "'" + ext + "'" + "where id=" + idp + ";";
+                string query = "UPDATE productos SET id=" + "'" + idp + "'" + ",precio=" + "'" + price + "'" + ",existencia=" + "'" + ext + "'" + "where id=" + idp + ";";
                 MessageBox.Show(query);
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -239,11 +241,52 @@ namespace ProyectoGina
             }
         }
 
+        private void MostrarVentasTotales()
+        {
+            try
+            {
+                string query = "SELECT SUM(monto) AS totalVentas FROM login";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                object result = cmd.ExecuteScalar();
+
+                double totalVentas = Convert.ToDouble(result);
+                labelVentasTotales.Text = $"${totalVentas:F2}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al calcular las ventas totales: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int ObtenerNumeroDeProductos()
+        {
+            int totalProductos = 0;
+
+            try
+            {
+                string query = "SELECT COUNT(*) FROM productos";
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                if (connection.State != ConnectionState.Open)
+                {
+                    Connect();
+                }
+
+                totalProductos = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener el número de productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return totalProductos;
+        }
+
         List<FormMainAdmin> data;
 
         private void botonConsulta_Click_1(object sender, EventArgs e)
         {
-            FormMainAdmin obj = new FormMainAdmin();
+            FormMainAdmin obj = new FormMainAdmin("AdminActual");
             data = obj.consulta();
 
 
@@ -264,20 +307,58 @@ namespace ProyectoGina
             string descripcion;
             double precio;
             int existencia;
-            id = Convert.ToInt32(this.textboxOtroId.Text);
+
+            if (!int.TryParse(this.textboxOtroId.Text, out id) ||
+                string.IsNullOrWhiteSpace(this.textboxOtroImagen.Text) ||
+                string.IsNullOrWhiteSpace(this.textboxOtroDescripcion.Text) ||
+                !double.TryParse(this.textboxOtroPrecio.Text, out precio) ||
+                !int.TryParse(this.textboxOtroExistencia.Text, out existencia))
+            {
+                MessageBox.Show("Completa todos los campos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             imagen = this.textboxOtroImagen.Text;
             descripcion = this.textboxOtroDescripcion.Text;
-            precio = Convert.ToDouble(this.textboxOtroPrecio.Text);
-            existencia = Convert.ToInt32(this.textboxOtroExistencia.Text);
+            
+            int totalProductos = ObtenerNumeroDeProductos();
+            if (totalProductos >= 10)
+            {
+                MessageBox.Show("No puedes registrar mas de 10 productos en el inventario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            FormMainAdmin obj = new FormMainAdmin();
-            obj.insertar(id, imagen, descripcion, precio, existencia);
-            obj.Disconnect();
+            try
+            {
+                FormMainAdmin obj = new FormMainAdmin("AdminActual");
+                obj.insertar(id, imagen, descripcion, precio, existencia);
+                obj.Disconnect();
+                MessageBox.Show("Producto agregado correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         private void BTNADMINBAJAS_Click_1(object sender, EventArgs e)
         {
-            FormMainAdmin obj = new FormMainAdmin();
+            if (!int.TryParse(textBoxEliminar.Text, out int id))
+            {
+                MessageBox.Show("Ingrese un ID valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int totalProductos = ObtenerNumeroDeProductos();
+
+            if (totalProductos <= 6)
+            {
+                MessageBox.Show("No puedes tener menos de 6 productos en el inventario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            FormMainAdmin obj = new FormMainAdmin("AdminActual");
             obj.eliminar(Convert.ToInt32(this.textBoxEliminar.Text));
             obj.Disconnect();
         }
@@ -286,42 +367,41 @@ namespace ProyectoGina
         {
             int id, existencia;
             double precio;
-            string imagen, descripcion;
+
 
 
             if (string.IsNullOrWhiteSpace(TextBoxId.Text) ||
                 string.IsNullOrWhiteSpace(TextBoxPrecio.Text) ||
                 string.IsNullOrWhiteSpace(TextBoxExistencias.Text))
             {
-                MessageBox.Show("Ingresa información en todos los campos. Vuelve a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("LLena todos los campos por favor. Vuelve a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!int.TryParse(TextBoxId.Text, out id))
             {
-                MessageBox.Show("El ID debe ser un número de 6 cifras válido. Vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El ID debe ser un numero de 6 cifras. Vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!double.TryParse(TextBoxPrecio.Text, out precio))
             {
-                MessageBox.Show("El precio debe ser un número válido. Vuelve a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingresa un numero valido para el precio. Vuelve a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!int.TryParse(TextBoxExistencias.Text, out existencia))
             {
-                MessageBox.Show("La existencia debe ser un número válido. Vuelve a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingresa un numero valido para la existencia. Vuelve a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            imagen=null;
-            descripcion=null;
+
 
             try
             {
-                FormMainAdmin obj = new FormMainAdmin();
-                obj.actualizar(id, imagen, descripcion, precio, existencia);
+                FormMainAdmin obj = new FormMainAdmin("AdminActual");
+                obj.actualizar(id, precio, existencia);
                 obj.Disconnect();
 
                 MessageBox.Show("Actualización realizada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -334,7 +414,7 @@ namespace ProyectoGina
 
         private void buttonDatos_Click_1(object sender, EventArgs e)
         {
-            FormMainAdmin obj = new FormMainAdmin();
+            FormMainAdmin obj = new FormMainAdmin("AdminActual");
             FormMainAdmin aux = obj.consultaUnRegistro(Convert.ToInt32(this.TextBoxId.Text));
             MessageBox.Show(aux.Id + " " + aux.Imagen + " " + aux.Descripcion + " " + aux.Precio + " " + aux.Existencia);
 
@@ -350,6 +430,11 @@ namespace ProyectoGina
         private void TextBoxId_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BTNADMINGRAFICA_Click(object sender, EventArgs e)
+        {
+            MostrarVentasTotales();
         }
     }
 }

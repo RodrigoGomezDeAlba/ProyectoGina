@@ -44,6 +44,8 @@
             pictureBox3 = new PictureBox();
             LBLPRODUCTONOMBRE = new Label();
             LBLPRODUCTOPRECIO = new Label();
+            LBLPRODUCTOEXISTENCIAS = new Label();
+            labelNombre = new Label();
             ((System.ComponentModel.ISupportInitialize)PICTUREIMAGES).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CONTADORPRODMAINUSU).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCarrito).BeginInit();
@@ -73,10 +75,10 @@
             BTNPASARIMAGEN.BackColor = Color.FromArgb(244, 169, 0);
             BTNPASARIMAGEN.Cursor = Cursors.Hand;
             BTNPASARIMAGEN.Font = new Font("Segoe UI", 7.875F, FontStyle.Bold);
-            BTNPASARIMAGEN.Location = new Point(367, 512);
-            BTNPASARIMAGEN.Margin = new Padding(5);
+            BTNPASARIMAGEN.Location = new Point(198, 240);
+            BTNPASARIMAGEN.Margin = new Padding(3, 2, 3, 2);
             BTNPASARIMAGEN.Name = "BTNPASARIMAGEN";
-            BTNPASARIMAGEN.Size = new Size(66, 57);
+            BTNPASARIMAGEN.Size = new Size(36, 27);
             BTNPASARIMAGEN.TabIndex = 1;
             BTNPASARIMAGEN.TabStop = false;
             BTNPASARIMAGEN.Text = ">";
@@ -87,10 +89,10 @@
             // 
             PICTUREIMAGES.BackColor = Color.White;
             PICTUREIMAGES.Image = (Image)resources.GetObject("PICTUREIMAGES.Image");
-            PICTUREIMAGES.Location = new Point(151, 134);
-            PICTUREIMAGES.Margin = new Padding(5);
+            PICTUREIMAGES.Location = new Point(81, 63);
+            PICTUREIMAGES.Margin = new Padding(3, 2, 3, 2);
             PICTUREIMAGES.Name = "PICTUREIMAGES";
-            PICTUREIMAGES.Size = new Size(425, 368);
+            PICTUREIMAGES.Size = new Size(229, 172);
             PICTUREIMAGES.SizeMode = PictureBoxSizeMode.StretchImage;
             PICTUREIMAGES.TabIndex = 2;
             PICTUREIMAGES.TabStop = false;
@@ -100,10 +102,10 @@
             BTNSALIRMAINUSU.BackColor = Color.FromArgb(255, 128, 128);
             BTNSALIRMAINUSU.Cursor = Cursors.Hand;
             BTNSALIRMAINUSU.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BTNSALIRMAINUSU.Location = new Point(39, 610);
-            BTNSALIRMAINUSU.Margin = new Padding(5);
+            BTNSALIRMAINUSU.Location = new Point(21, 286);
+            BTNSALIRMAINUSU.Margin = new Padding(3, 2, 3, 2);
             BTNSALIRMAINUSU.Name = "BTNSALIRMAINUSU";
-            BTNSALIRMAINUSU.Size = new Size(166, 78);
+            BTNSALIRMAINUSU.Size = new Size(89, 37);
             BTNSALIRMAINUSU.TabIndex = 3;
             BTNSALIRMAINUSU.Text = "Salir";
             BTNSALIRMAINUSU.UseVisualStyleBackColor = false;
@@ -114,10 +116,10 @@
             BTNLOGOUTMAINUSER.BackColor = Color.Gainsboro;
             BTNLOGOUTMAINUSER.Cursor = Cursors.Hand;
             BTNLOGOUTMAINUSER.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BTNLOGOUTMAINUSER.Location = new Point(1096, 610);
-            BTNLOGOUTMAINUSER.Margin = new Padding(5);
+            BTNLOGOUTMAINUSER.Location = new Point(590, 286);
+            BTNLOGOUTMAINUSER.Margin = new Padding(3, 2, 3, 2);
             BTNLOGOUTMAINUSER.Name = "BTNLOGOUTMAINUSER";
-            BTNLOGOUTMAINUSER.Size = new Size(166, 78);
+            BTNLOGOUTMAINUSER.Size = new Size(89, 37);
             BTNLOGOUTMAINUSER.TabIndex = 4;
             BTNLOGOUTMAINUSER.Text = "Log Out";
             BTNLOGOUTMAINUSER.UseVisualStyleBackColor = false;
@@ -128,10 +130,10 @@
             BTNCOMPRARMAINUSU.BackColor = Color.FromArgb(192, 255, 192);
             BTNCOMPRARMAINUSU.Cursor = Cursors.Hand;
             BTNCOMPRARMAINUSU.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BTNCOMPRARMAINUSU.Location = new Point(895, 511);
-            BTNCOMPRARMAINUSU.Margin = new Padding(5);
+            BTNCOMPRARMAINUSU.Location = new Point(482, 240);
+            BTNCOMPRARMAINUSU.Margin = new Padding(3, 2, 3, 2);
             BTNCOMPRARMAINUSU.Name = "BTNCOMPRARMAINUSU";
-            BTNCOMPRARMAINUSU.Size = new Size(166, 57);
+            BTNCOMPRARMAINUSU.Size = new Size(89, 27);
             BTNCOMPRARMAINUSU.TabIndex = 5;
             BTNCOMPRARMAINUSU.Text = "Agregar";
             BTNCOMPRARMAINUSU.UseVisualStyleBackColor = false;
@@ -139,10 +141,10 @@
             // 
             // CONTADORPRODMAINUSU
             // 
-            CONTADORPRODMAINUSU.Location = new Point(742, 521);
-            CONTADORPRODMAINUSU.Margin = new Padding(5);
+            CONTADORPRODMAINUSU.Location = new Point(400, 244);
+            CONTADORPRODMAINUSU.Margin = new Padding(3, 2, 3, 2);
             CONTADORPRODMAINUSU.Name = "CONTADORPRODMAINUSU";
-            CONTADORPRODMAINUSU.Size = new Size(117, 39);
+            CONTADORPRODMAINUSU.Size = new Size(63, 23);
             CONTADORPRODMAINUSU.TabIndex = 6;
             // 
             // pictureBoxCarrito
@@ -150,9 +152,10 @@
             pictureBoxCarrito.BackColor = Color.Transparent;
             pictureBoxCarrito.Cursor = Cursors.Hand;
             pictureBoxCarrito.Image = (Image)resources.GetObject("pictureBoxCarrito.Image");
-            pictureBoxCarrito.Location = new Point(1182, 12);
+            pictureBoxCarrito.Location = new Point(636, 6);
+            pictureBoxCarrito.Margin = new Padding(2, 1, 2, 1);
             pictureBoxCarrito.Name = "pictureBoxCarrito";
-            pictureBoxCarrito.Size = new Size(106, 84);
+            pictureBoxCarrito.Size = new Size(57, 39);
             pictureBoxCarrito.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxCarrito.TabIndex = 8;
             pictureBoxCarrito.TabStop = false;
@@ -163,10 +166,10 @@
             buttonRegresarImagen.BackColor = Color.FromArgb(244, 169, 0);
             buttonRegresarImagen.Cursor = Cursors.Hand;
             buttonRegresarImagen.Font = new Font("Segoe UI", 7.875F, FontStyle.Bold);
-            buttonRegresarImagen.Location = new Point(291, 512);
-            buttonRegresarImagen.Margin = new Padding(5);
+            buttonRegresarImagen.Location = new Point(157, 240);
+            buttonRegresarImagen.Margin = new Padding(3, 2, 3, 2);
             buttonRegresarImagen.Name = "buttonRegresarImagen";
-            buttonRegresarImagen.Size = new Size(66, 57);
+            buttonRegresarImagen.Size = new Size(36, 27);
             buttonRegresarImagen.TabIndex = 9;
             buttonRegresarImagen.TabStop = false;
             buttonRegresarImagen.Text = "<";
@@ -176,18 +179,20 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(245, 140, 0);
-            pictureBox1.Location = new Point(-13, -5);
+            pictureBox1.Location = new Point(-7, -2);
+            pictureBox1.Margin = new Padding(2, 1, 2, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1355, 115);
+            pictureBox1.Size = new Size(730, 54);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Location = new Point(6, 6);
+            pictureBox2.Margin = new Padding(2, 1, 2, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(93, 84);
+            pictureBox2.Size = new Size(50, 39);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
@@ -195,9 +200,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(104, 12);
+            pictureBox3.Location = new Point(56, 6);
+            pictureBox3.Margin = new Padding(2, 1, 2, 1);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(253, 84);
+            pictureBox3.Size = new Size(136, 39);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
@@ -206,9 +212,10 @@
             // 
             LBLPRODUCTONOMBRE.AutoSize = true;
             LBLPRODUCTONOMBRE.Font = new Font("Segoe UI", 10.875F);
-            LBLPRODUCTONOMBRE.Location = new Point(654, 311);
+            LBLPRODUCTONOMBRE.Location = new Point(352, 116);
+            LBLPRODUCTONOMBRE.Margin = new Padding(2, 0, 2, 0);
             LBLPRODUCTONOMBRE.Name = "LBLPRODUCTONOMBRE";
-            LBLPRODUCTONOMBRE.Size = new Size(160, 40);
+            LBLPRODUCTONOMBRE.Size = new Size(84, 20);
             LBLPRODUCTONOMBRE.TabIndex = 14;
             LBLPRODUCTONOMBRE.Text = "NombreBD";
             // 
@@ -216,18 +223,44 @@
             // 
             LBLPRODUCTOPRECIO.AutoSize = true;
             LBLPRODUCTOPRECIO.Font = new Font("Segoe UI", 10.875F);
-            LBLPRODUCTOPRECIO.Location = new Point(654, 415);
+            LBLPRODUCTOPRECIO.Location = new Point(352, 150);
+            LBLPRODUCTOPRECIO.Margin = new Padding(2, 0, 2, 0);
             LBLPRODUCTOPRECIO.Name = "LBLPRODUCTOPRECIO";
-            LBLPRODUCTOPRECIO.Size = new Size(132, 40);
+            LBLPRODUCTOPRECIO.Size = new Size(70, 20);
             LBLPRODUCTOPRECIO.TabIndex = 15;
             LBLPRODUCTOPRECIO.Text = "PrecioBD";
             // 
+            // LBLPRODUCTOEXISTENCIAS
+            // 
+            LBLPRODUCTOEXISTENCIAS.AutoSize = true;
+            LBLPRODUCTOEXISTENCIAS.Font = new Font("Segoe UI", 10.875F);
+            LBLPRODUCTOEXISTENCIAS.Location = new Point(352, 181);
+            LBLPRODUCTOEXISTENCIAS.Margin = new Padding(2, 0, 2, 0);
+            LBLPRODUCTOEXISTENCIAS.Name = "LBLPRODUCTOEXISTENCIAS";
+            LBLPRODUCTOEXISTENCIAS.Size = new Size(70, 20);
+            LBLPRODUCTOEXISTENCIAS.TabIndex = 16;
+            LBLPRODUCTOEXISTENCIAS.Text = "PrecioBD";
+            // 
+            // labelNombre
+            // 
+            labelNombre.AutoSize = true;
+            labelNombre.Font = new Font("Segoe UI", 10.875F);
+            labelNombre.Location = new Point(501, 9);
+            labelNombre.Margin = new Padding(2, 0, 2, 0);
+            labelNombre.Name = "labelNombre";
+            labelNombre.Size = new Size(70, 20);
+            labelNombre.TabIndex = 17;
+            labelNombre.Text = "PrecioBD";
+            labelNombre.Click += labelNombre_Click;
+            // 
             // FormMainUsuario
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1300, 720);
+            ClientSize = new Size(700, 338);
+            Controls.Add(labelNombre);
+            Controls.Add(LBLPRODUCTOEXISTENCIAS);
             Controls.Add(LBLPRODUCTOPRECIO);
             Controls.Add(LBLPRODUCTONOMBRE);
             Controls.Add(pictureBox3);
@@ -241,7 +274,7 @@
             Controls.Add(BTNSALIRMAINUSU);
             Controls.Add(PICTUREIMAGES);
             Controls.Add(BTNPASARIMAGEN);
-            Margin = new Padding(5);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMainUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MAIN";
@@ -272,5 +305,7 @@
         private PictureBox pictureBox3;
         private Label LBLPRODUCTONOMBRE;
         private Label LBLPRODUCTOPRECIO;
+        private Label LBLPRODUCTOEXISTENCIAS;
+        private Label labelNombre;
     }
 }
