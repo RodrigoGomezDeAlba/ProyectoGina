@@ -14,20 +14,15 @@ namespace ProyectoGina
 {
     public partial class FormUsuario : System.Windows.Forms.Form
     {
-        public string usuario;
-        public string contra;
-
+        private MySqlConnection connection;
         public FormUsuario()
         {
             InitializeComponent();
             this.Connect();
-            LOGOSLOGAN.SizeMode = PictureBoxSizeMode.Zoom; 
-            usuario = TXTUsuario.Text;
-            contra = TEXTContra.Text;           
+            LOGOSLOGAN.SizeMode = PictureBoxSizeMode.Zoom;           
             LoadImages();
         }
-        private MySqlConnection connection;
-
+       
         public void Disconnect()
         {
             if (connection != null && connection.State == System.Data.ConnectionState.Open)
@@ -51,7 +46,7 @@ namespace ProyectoGina
             }
         }
 
-        public void LoginValidacion()
+        private void LoginValidacion()
         {
 
             string usuario = TXTUsuario.Text;
@@ -125,9 +120,7 @@ namespace ProyectoGina
 
         private Image LoadImageFromPath(string imagePath)
         {
-        
-                return Image.FromFile(imagePath);
-           
+                return Image.FromFile(imagePath);  
         }
 
         private void FormUsuario_Load(object sender, EventArgs e)
@@ -137,12 +130,12 @@ namespace ProyectoGina
 
         private void TXTUsuario_TextChanged(object sender, EventArgs e)
         {
-            usuario = TXTUsuario.Text;
+            
         }
 
         private void TEXTContra_TextChanged(object sender, EventArgs e)
         {
-            contra = TEXTContra.Text;
+            
         }
 
         private void BTNSalirF2_Click(object sender, EventArgs e)

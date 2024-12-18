@@ -142,6 +142,7 @@
             richTextBoxDatos.Size = new Size(251, 204);
             richTextBoxDatos.TabIndex = 6;
             richTextBoxDatos.Text = "";
+            richTextBoxDatos.TextChanged += richTextBoxDatos_TextChanged;
             // 
             // textboxOtroId
             // 

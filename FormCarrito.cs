@@ -108,80 +108,10 @@ namespace ProyectoGina
 
         private void BTNTICKETCARRITO_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SaveFileDialog saveFileDialog = new SaveFileDialog
-                {
-                    Title = "Guardar Ticket",
-                    Filter = "PDF Files (.pdf)|.pdf",
-                    FileName = "ticket_carrito.pdf"
-                };
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = saveFileDialog.FileName;
-                    GenerarPDFTicket(filePath);
-                    Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al generar el ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
-        private void GenerarPDFTicket(string filePath)
-        {
-            PdfDocument document = new PdfDocument();
-            PdfPage page = document.AddPage();
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-            XFont font = new XFont("Verdana", 12);
 
-            gfx.DrawString("Ticket de Compra", font, XBrushes.Black, new XPoint(250, 30));
-            gfx.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XPoint(230, 80));
-
-            int yOffset = 120;
-            decimal subtotalGeneral = 0;
-            decimal comisionTotal = 0;
-
-            foreach (var item in FormMainUsuario.carrito)
-            {
-                string producto = item.Item1;
-                decimal cantidad = item.Item2;
-
-                string query = $"SELECT precio FROM productos WHERE descripcion = '{producto}'";
-                MySqlCommand ticket = new MySqlCommand(query, connection);
-                double precio = Convert.ToDouble(ticket.ExecuteScalar());
-
-                decimal subtotal = cantidad * (decimal)precio;
-                decimal comision = subtotal * 0.06m;
-                decimal totalConComision = subtotal + comision;
-                st = subtotal;
-
-                gfx.DrawString($"{producto} - Cantidad: {cantidad}", font, XBrushes.Black, new XPoint(50, yOffset));
-                yOffset += 20;
-                gfx.DrawString($"Subtotal: ${subtotal:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
-                yOffset += 20;
-                gfx.DrawString($"Comisión del 6%: ${comision:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
-                yOffset += 20;
-                gfx.DrawString($"Total con Comisión: ${totalConComision:F2}", font, XBrushes.Black, new XPoint(50, yOffset));
-                yOffset += 30;
-
-                subtotalGeneral += subtotal;
-                comisionTotal += comision;
-            }
-
-            montoTotal = subtotalGeneral + comisionTotal;
-
-            gfx.DrawString($"Subtotal General: ${subtotalGeneral:F2}", font, XBrushes.Black, new XPoint(230, yOffset));
-            yOffset += 20;
-            gfx.DrawString($"Comisión Total (6%): ${comisionTotal:F2}", font, XBrushes.Black, new XPoint(230, yOffset));
-            yOffset += 20;
-            gfx.DrawString($"Total a Pagar: ${montoTotal:F2}", font, XBrushes.Black, new XPoint(230, yOffset + 20));
-
-            document.Save(filePath);
-        }
 
 
 
@@ -209,8 +139,13 @@ namespace ProyectoGina
 
         private void BTNCONFIRMCARRITO_Click_1(object sender, EventArgs e)
         {
-            FormMetodosPago f=new FormMetodosPago();
+            FormMetodosPago f = new FormMetodosPago(usuarioActual);
             f.ShowDialog();
+        }
+
+        private void LBLUSUARIO_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

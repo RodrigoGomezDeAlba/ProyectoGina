@@ -10,9 +10,6 @@ namespace ProyectoGina
             DATOS.SizeMode = PictureBoxSizeMode.Zoom;
             CCB.SizeMode = PictureBoxSizeMode.Zoom;
             UAALOGO.SizeMode = PictureBoxSizeMode.Zoom;
-
-
-            // Cargar imágenes automáticamente
             LoadImages();
         }
 
@@ -39,7 +36,7 @@ namespace ProyectoGina
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FECHALBL.Text = DateTime.Now.ToString("dd/MM/yyyy"); // Muestra la fecha en formato día/mes/año
+            FECHALBL.Text = DateTime.Now.ToString("dd/MM/yyyy"); 
         }
 
         private void BTNPortadaSalir_Click(object sender, EventArgs e)

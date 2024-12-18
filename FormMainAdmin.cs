@@ -24,13 +24,16 @@ namespace ProyectoGina
         private double precio;
         private int existencia;
         private string adminActual;
+        private MySqlConnection connection;
+
         public FormMainAdmin(string nombreAdmin)
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            Connect();
             adminActual = nombreAdmin;
             labelNOMBRE.Text = $"{adminActual}";
-            Connect();
         }
+
         public FormMainAdmin(int id, string imagen, string descripcion, double precio, int existencia)
         {
             this.Id = id;
@@ -45,9 +48,25 @@ namespace ProyectoGina
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public double Precio { get => precio; set => precio = value; }
         public int Existencia { get => existencia; set => existencia = value; }
+
+        public void Connect()
+        {
+            string cadena = "Server=localhost; Database=logininfo; User=root; Password=; SslMode=none;";
+            try
+            {
+                connection = new MySqlConnection(cadena);
+                connection.Open();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar con la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FormMainAdmin_Load(object sender, EventArgs e)
         {
-
+            // Manejador vacío
         }
 
         private void BTNADMINSALIR_Click(object sender, EventArgs e)
@@ -61,186 +80,142 @@ namespace ProyectoGina
             FormUsuario form = new FormUsuario();
             form.ShowDialog();
         }
-        private MySqlConnection connection;
 
-        public void Disconnect()
-        {
-            if (connection != null && connection.State == System.Data.ConnectionState.Open)
-            {
-                connection.Close();
-
-            }
-        }
-        public void Connect()
-        {
-            string cadena = "Server=localhost; Database=logininfo; User=root; Password=; SslMode=none;";
-            try
-            {
-                connection = new MySqlConnection(cadena);
-                connection.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al conectar con la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public List<FormMainAdmin> consulta()
+        private List<FormMainAdmin> consulta()
         {
             List<FormMainAdmin> data = new List<FormMainAdmin>();
-            FormMainAdmin item;
-            int id;
-            string imagen;
-            string descripcion;
-            double precio;
-            int existencia;
             try
             {
                 string query = "SELECT * FROM productos ORDER BY existencia ASC";
-                MySqlCommand command = new MySqlCommand(query, this.connection);
-
-
+                MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
+                    int id = Convert.ToInt32(reader["id"]);
+                    string imagen = Convert.ToString(reader["imagen"]) ?? "";
+                    string descripcion = Convert.ToString(reader["descripcion"]) ?? "";
+                    double precio = Convert.ToDouble(reader["precio"]);
+                    int existencia = Convert.ToInt32(reader["existencia"]);
 
-                    id = Convert.ToInt32(reader["id"]);
-                    imagen = Convert.ToString(reader["imagen"]) ?? "";
-                    descripcion = Convert.ToString(reader["descripcion"]) ?? "";
-                    precio = Convert.ToDouble(reader["precio"]);
-                    existencia = Convert.ToInt32(reader["existencia"]);
-
-                    item = new FormMainAdmin(id, imagen, descripcion, precio, existencia);
-                    data.Add(item);
-
+                    data.Add(new FormMainAdmin(id, imagen, descripcion, precio, existencia));
                 }
+
                 reader.Close();
-                data.ForEach((p) =>
-                {
-
-
-                });
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al leer la tabla de la base de datos: " + ex.Message);
-                this.Disconnect();
+                Disconnect();
             }
 
             return data;
         }
 
-        public void insertar(int idp, string img, string desc, double price, int ext)
+        private void insertar(int idp, string img, string desc, double price, int ext)
         {
             string query = "";
             try
             {
-
-
                 query = "INSERT INTO productos (id,imagen,descripcion,precio,existencia) VALUES ("
-                       + "'" + idp + "',"
-                       + "'" + img + "',"
-                       + "'" + desc + "',"
-                       + "'" + price + "',"
-                       + "'" + ext + "')";
-
-
-
+                        + "'" + idp + "',"
+                        + "'" + img + "',"
+                        + "'" + desc + "',"
+                        + "'" + price + "',"
+                        + "'" + ext + "')";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show(query + "\nRegistro Agregado");
+                MessageBox.Show("Registro Agregado");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(query + "\nProducto duplicado" + ex.Message);
-                this.Disconnect();
+                MessageBox.Show($"Error al agregar producto: {ex.Message}");
+                Disconnect();
             }
         }
 
-        public FormMainAdmin consultaUnRegistro(int idp)
+        private void eliminar(int idp)
         {
-
-            FormMainAdmin item = null;
-            int id;
-            string imagen;
-            string descripcion;
-            double precio;
-            int existencia;
+            string query = "";
             try
             {
-                string query = "SELECT * FROM productos where id=" + idp + ";";
-                MySqlCommand command = new MySqlCommand(query, this.connection);
-
-
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-
-                    id = Convert.ToInt32(reader["id"]);
-                    imagen = Convert.ToString(reader["imagen"]) ?? "";
-                    descripcion = Convert.ToString(reader["descripcion"]) ?? "";
-                    precio = Convert.ToDouble(reader["precio"]);
-                    existencia = Convert.ToInt32(reader["existencia"]);
-
-                    item = new FormMainAdmin(id, imagen, descripcion, precio, existencia);
-
-
-                }
-                reader.Close();
-
-
+                query = "DELETE FROM productos WHERE id=" + idp + ";";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Registro Eliminado");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al leer la tabla de la base de datos: " + ex.Message);
-                this.Disconnect();
+                MessageBox.Show($"Error al eliminar producto: {ex.Message}");
+                Disconnect();
             }
+        }
+
+        private void actualizar(int idp, double price, int ext)
+        {
+            try
+            {
+                string query = "UPDATE productos SET precio='" + price + "', existencia='" + ext + "' WHERE id=" + idp + ";";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Registro Actualizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error en la actualización: {ex.Message}");
+                Disconnect();
+            }
+        }
+
+        private FormMainAdmin consultaUnRegistro(int idp)
+        {
+            FormMainAdmin item = null;
+            try
+            {
+                string query = "SELECT * FROM productos WHERE id=" + idp + ";";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["id"]);
+                    string imagen = Convert.ToString(reader["imagen"]) ?? "";
+                    string descripcion = Convert.ToString(reader["descripcion"]) ?? "";
+                    double precio = Convert.ToDouble(reader["precio"]);
+                    int existencia = Convert.ToInt32(reader["existencia"]);
+
+                    item = new FormMainAdmin(id, imagen, descripcion, precio, existencia);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar registro: " + ex.Message);
+                Disconnect();
+            }
+
             return item;
         }
 
-
-        public void eliminar(int idp)
+        private int ObtenerNumeroDeProductos()
         {
-            string query = "";
+            int totalProductos = 0;
             try
             {
-
-                query = "DELETE FROM productos WHERE id=" + idp + ";";
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show(query + "\nRegistro Eliminado");
+                string query = "SELECT COUNT(*) FROM productos";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                totalProductos = Convert.ToInt32(command.ExecuteScalar());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(query + "\nError " + ex.Message);
-                this.Disconnect();
+                MessageBox.Show($"Error al contar productos: {ex.Message}");
+                Disconnect();
             }
+
+            return totalProductos;
         }
-
-
-        public void actualizar(int idp, double price, int ext)
-        {
-
-            try
-            {
-                string query = "UPDATE productos SET id=" + "'" + idp + "'" + ",precio=" + "'" + price + "'" + ",existencia=" + "'" + ext + "'" + "where id=" + idp + ";";
-                MessageBox.Show(query);
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("\nRegistro Actualizado");
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error en la actualizacion: " + ex.Message);
-                this.Disconnect();
-            }
-        }
-
         private void MostrarVentasTotales()
         {
             try
@@ -258,28 +233,12 @@ namespace ProyectoGina
             }
         }
 
-        private int ObtenerNumeroDeProductos()
+        private void Disconnect()
         {
-            int totalProductos = 0;
-
-            try
+            if (connection != null && connection.State == System.Data.ConnectionState.Open)
             {
-                string query = "SELECT COUNT(*) FROM productos";
-                MySqlCommand command = new MySqlCommand(query, connection);
-
-                if (connection.State != ConnectionState.Open)
-                {
-                    Connect();
-                }
-
-                totalProductos = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al obtener el número de productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return totalProductos;
         }
 
         List<FormMainAdmin> data;
@@ -317,10 +276,10 @@ namespace ProyectoGina
                 MessageBox.Show("Completa todos los campos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             imagen = this.textboxOtroImagen.Text;
             descripcion = this.textboxOtroDescripcion.Text;
-            
+
             int totalProductos = ObtenerNumeroDeProductos();
             if (totalProductos >= 10)
             {
@@ -435,6 +394,11 @@ namespace ProyectoGina
         private void BTNADMINGRAFICA_Click(object sender, EventArgs e)
         {
             MostrarVentasTotales();
+        }
+
+        private void richTextBoxDatos_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

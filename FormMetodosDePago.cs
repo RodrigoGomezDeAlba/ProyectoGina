@@ -5,9 +5,12 @@ namespace ProyectoGina
 {
     public partial class FormMetodosPago : Form
     {
-        public FormMetodosPago()
+        private string usuarioActual;
+
+        public FormMetodosPago(string nombreUsuario)
         {
             InitializeComponent();
+            usuarioActual = nombreUsuario;
         }
 
         private void FormMetodosPago_Load(object sender, EventArgs e)
@@ -21,7 +24,7 @@ namespace ProyectoGina
 
             // Crear y mostrar el formulario FormEfectivo pasando el total a pagar
             this.Hide();
-            FormEfectivo f = new FormEfectivo(totalPagar);  // Pasamos el total al constructor de FormEfectivo
+            FormEfectivo f = new FormEfectivo(totalPagar, usuarioActual);  // Pasamos el total al constructor de FormEfectivo
             f.ShowDialog();
         }
 
@@ -35,7 +38,7 @@ namespace ProyectoGina
             {
                 // Crear y mostrar el formulario Formtarjeta
                 this.Hide();
-                Formtarjeta f = new Formtarjeta();
+                Formtarjeta f = new Formtarjeta(usuarioActual);
                 f.ShowDialog();
             }
             catch (Exception ex)
@@ -47,7 +50,7 @@ namespace ProyectoGina
         private void BTNOXXO_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormOxxo f = new FormOxxo();
+            FormOxxo f = new FormOxxo(usuarioActual);
             f.ShowDialog();
         }
     }

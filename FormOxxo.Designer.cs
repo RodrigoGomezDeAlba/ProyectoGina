@@ -38,27 +38,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(170, 242);
+            label1.Location = new Point(149, 182);
             label1.Name = "label1";
-            label1.Size = new Size(247, 20);
+            label1.Size = new Size(192, 15);
             label1.TabIndex = 0;
             label1.Text = "Cuenta Refencia: 9000 0000 7617 94";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.OXXOQR;
-            pictureBox1.Location = new Point(172, 21);
+            pictureBox1.Location = new Point(150, 16);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(245, 204);
+            pictureBox1.Size = new Size(214, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // BTNCONFIRMAR
             // 
-            BTNCONFIRMAR.Location = new Point(456, 283);
+            BTNCONFIRMAR.Location = new Point(399, 212);
+            BTNCONFIRMAR.Margin = new Padding(3, 2, 3, 2);
             BTNCONFIRMAR.Name = "BTNCONFIRMAR";
-            BTNCONFIRMAR.Size = new Size(94, 29);
+            BTNCONFIRMAR.Size = new Size(82, 22);
             BTNCONFIRMAR.TabIndex = 5;
             BTNCONFIRMAR.Text = "Confirmar";
             BTNCONFIRMAR.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@
             // 
             // BTNREGRESAR
             // 
-            BTNREGRESAR.Location = new Point(31, 287);
+            BTNREGRESAR.Location = new Point(27, 215);
+            BTNREGRESAR.Margin = new Padding(3, 2, 3, 2);
             BTNREGRESAR.Name = "BTNREGRESAR";
-            BTNREGRESAR.Size = new Size(94, 29);
+            BTNREGRESAR.Size = new Size(82, 22);
             BTNREGRESAR.TabIndex = 4;
             BTNREGRESAR.Text = "Regresar";
             BTNREGRESAR.UseVisualStyleBackColor = true;
@@ -76,13 +79,14 @@
             // 
             // FormOxxo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(585, 328);
+            ClientSize = new Size(512, 246);
             Controls.Add(BTNCONFIRMAR);
             Controls.Add(BTNREGRESAR);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormOxxo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PAGO EN OXXO";

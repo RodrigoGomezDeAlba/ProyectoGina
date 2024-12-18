@@ -8,7 +8,7 @@ namespace ProyectoGina
 {
     public partial class FormMainUsuario : System.Windows.Forms.Form
     {
-        private MySqlConnection connection;
+        
         public static int cont;
         public static decimal prodc;
         public static List<string> vec;
@@ -17,6 +17,7 @@ namespace ProyectoGina
         private List<Tuple<string, decimal>> productos;
         private List<Tuple<string, decimal, int, Image>> productosConImagen;
         private string usuarioActual;
+        private MySqlConnection connection;
         public FormMainUsuario(string nombreUsuario)
         {
             InitializeComponent();

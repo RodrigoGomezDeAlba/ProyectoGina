@@ -42,16 +42,17 @@
             // LBLTOTAL
             // 
             LBLTOTAL.AutoSize = true;
-            LBLTOTAL.Location = new Point(56, 13);
+            LBLTOTAL.Location = new Point(49, 10);
             LBLTOTAL.Name = "LBLTOTAL";
-            LBLTOTAL.Size = new Size(0, 20);
+            LBLTOTAL.Size = new Size(0, 15);
             LBLTOTAL.TabIndex = 0;
             // 
             // BTNREGRESAR
             // 
-            BTNREGRESAR.Location = new Point(12, 307);
+            BTNREGRESAR.Location = new Point(10, 230);
+            BTNREGRESAR.Margin = new Padding(3, 2, 3, 2);
             BTNREGRESAR.Name = "BTNREGRESAR";
-            BTNREGRESAR.Size = new Size(94, 29);
+            BTNREGRESAR.Size = new Size(82, 22);
             BTNREGRESAR.TabIndex = 2;
             BTNREGRESAR.Text = "Regresar";
             BTNREGRESAR.UseVisualStyleBackColor = true;
@@ -59,9 +60,10 @@
             // 
             // BTNCONFIRMAR
             // 
-            BTNCONFIRMAR.Location = new Point(367, 307);
+            BTNCONFIRMAR.Location = new Point(321, 230);
+            BTNCONFIRMAR.Margin = new Padding(3, 2, 3, 2);
             BTNCONFIRMAR.Name = "BTNCONFIRMAR";
-            BTNCONFIRMAR.Size = new Size(94, 29);
+            BTNCONFIRMAR.Size = new Size(82, 22);
             BTNCONFIRMAR.TabIndex = 3;
             BTNCONFIRMAR.Text = "Confirmar";
             BTNCONFIRMAR.UseVisualStyleBackColor = true;
@@ -69,42 +71,44 @@
             // 
             // TXTDR
             // 
-            TXTDR.Location = new Point(85, 107);
+            TXTDR.Location = new Point(74, 80);
+            TXTDR.Margin = new Padding(3, 2, 3, 2);
             TXTDR.Name = "TXTDR";
-            TXTDR.Size = new Size(339, 27);
+            TXTDR.Size = new Size(297, 23);
             TXTDR.TabIndex = 4;
             TXTDR.TextChanged += TXTDR_TextChanged;
             // 
             // LBLDINEROREC
             // 
             LBLDINEROREC.AutoSize = true;
-            LBLDINEROREC.Location = new Point(85, 84);
+            LBLDINEROREC.Location = new Point(74, 63);
             LBLDINEROREC.Name = "LBLDINEROREC";
-            LBLDINEROREC.Size = new Size(117, 20);
+            LBLDINEROREC.Size = new Size(91, 15);
             LBLDINEROREC.TabIndex = 5;
             LBLDINEROREC.Text = "Dinero Recibido";
             // 
             // LBLTOTP
             // 
             LBLTOTP.AutoSize = true;
-            LBLTOTP.Location = new Point(85, 11);
+            LBLTOTP.Location = new Point(74, 8);
             LBLTOTP.Name = "LBLTOTP";
-            LBLTOTP.Size = new Size(101, 20);
+            LBLTOTP.Size = new Size(77, 15);
             LBLTOTP.TabIndex = 9;
             LBLTOTP.Text = "Total  a pagar";
             // 
             // TXTTOT
             // 
-            TXTTOT.Location = new Point(85, 34);
+            TXTTOT.Location = new Point(74, 26);
+            TXTTOT.Margin = new Padding(3, 2, 3, 2);
             TXTTOT.Name = "TXTTOT";
-            TXTTOT.Size = new Size(339, 27);
+            TXTTOT.Size = new Size(297, 23);
             TXTTOT.TabIndex = 8;
             // 
             // FormEfectivo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(473, 348);
+            ClientSize = new Size(414, 261);
             Controls.Add(LBLTOTP);
             Controls.Add(TXTTOT);
             Controls.Add(LBLDINEROREC);
@@ -112,6 +116,7 @@
             Controls.Add(BTNCONFIRMAR);
             Controls.Add(BTNREGRESAR);
             Controls.Add(LBLTOTAL);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormEfectivo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Efectivo";
@@ -129,6 +134,7 @@
         private Label LBLDINEROREC;
         private Label LBLTOTP;
         private TextBox TXTTOT;
-        private System.Windows.Forms.Timer timer;
+        
+        private Button buttonTicket;
     }
 }
