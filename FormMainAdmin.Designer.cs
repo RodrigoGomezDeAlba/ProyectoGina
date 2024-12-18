@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainAdmin));
             BTNADMINSALIR = new Button();
             BTNADMINALTAS = new Button();
             buttonDatos = new Button();
@@ -47,8 +48,14 @@
             TextBoxPrecio = new TextBox();
             textBoxEliminar = new TextBox();
             labelVentasTotales = new TextBox();
-            button1 = new Button();
+            btnGrafica = new Button();
             labelNOMBRE = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // BTNADMINSALIR
@@ -56,7 +63,7 @@
             BTNADMINSALIR.BackColor = Color.FromArgb(255, 128, 128);
             BTNADMINSALIR.Cursor = Cursors.Hand;
             BTNADMINSALIR.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNADMINSALIR.Location = new Point(21, 286);
+            BTNADMINSALIR.Location = new Point(19, 335);
             BTNADMINSALIR.Margin = new Padding(3, 2, 3, 2);
             BTNADMINSALIR.Name = "BTNADMINSALIR";
             BTNADMINSALIR.Size = new Size(89, 37);
@@ -70,7 +77,7 @@
             BTNADMINALTAS.BackColor = Color.FromArgb(192, 255, 192);
             BTNADMINALTAS.Cursor = Cursors.Hand;
             BTNADMINALTAS.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNADMINALTAS.Location = new Point(308, 194);
+            BTNADMINALTAS.Location = new Point(306, 243);
             BTNADMINALTAS.Margin = new Padding(3, 2, 3, 2);
             BTNADMINALTAS.Name = "BTNADMINALTAS";
             BTNADMINALTAS.Size = new Size(98, 29);
@@ -84,7 +91,7 @@
             buttonDatos.BackColor = Color.FromArgb(255, 224, 192);
             buttonDatos.Cursor = Cursors.Hand;
             buttonDatos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonDatos.Location = new Point(549, 79);
+            buttonDatos.Location = new Point(548, 121);
             buttonDatos.Margin = new Padding(3, 2, 3, 2);
             buttonDatos.Name = "buttonDatos";
             buttonDatos.Size = new Size(131, 29);
@@ -98,7 +105,7 @@
             BTNADMINGRAFICA.BackColor = Color.FromArgb(192, 192, 255);
             BTNADMINGRAFICA.Cursor = Cursors.Hand;
             BTNADMINGRAFICA.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNADMINGRAFICA.Location = new Point(287, 286);
+            BTNADMINGRAFICA.Location = new Point(305, 284);
             BTNADMINGRAFICA.Margin = new Padding(3, 2, 3, 2);
             BTNADMINGRAFICA.Name = "BTNADMINGRAFICA";
             BTNADMINGRAFICA.Size = new Size(98, 29);
@@ -112,7 +119,7 @@
             botonConsulta.BackColor = Color.FromArgb(192, 255, 255);
             botonConsulta.Cursor = Cursors.Hand;
             botonConsulta.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            botonConsulta.Location = new Point(24, 235);
+            botonConsulta.Location = new Point(149, 284);
             botonConsulta.Margin = new Padding(3, 2, 3, 2);
             botonConsulta.Name = "botonConsulta";
             botonConsulta.Size = new Size(123, 29);
@@ -126,7 +133,7 @@
             BTNADMINLOGOUT.BackColor = Color.Gainsboro;
             BTNADMINLOGOUT.Cursor = Cursors.Hand;
             BTNADMINLOGOUT.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNADMINLOGOUT.Location = new Point(590, 286);
+            BTNADMINLOGOUT.Location = new Point(589, 335);
             BTNADMINLOGOUT.Margin = new Padding(3, 2, 3, 2);
             BTNADMINLOGOUT.Name = "BTNADMINLOGOUT";
             BTNADMINLOGOUT.Size = new Size(89, 37);
@@ -137,7 +144,7 @@
             // 
             // richTextBoxDatos
             // 
-            richTextBoxDatos.Location = new Point(24, 21);
+            richTextBoxDatos.Location = new Point(23, 70);
             richTextBoxDatos.Name = "richTextBoxDatos";
             richTextBoxDatos.Size = new Size(251, 204);
             richTextBoxDatos.TabIndex = 6;
@@ -148,7 +155,7 @@
             // 
             textboxOtroId.Cursor = Cursors.IBeam;
             textboxOtroId.ForeColor = Color.Lime;
-            textboxOtroId.Location = new Point(307, 32);
+            textboxOtroId.Location = new Point(305, 81);
             textboxOtroId.Name = "textboxOtroId";
             textboxOtroId.PlaceholderText = "Id a agregar";
             textboxOtroId.Size = new Size(100, 23);
@@ -160,7 +167,7 @@
             BTNADMINBAJAS.BackColor = Color.FromArgb(255, 192, 192);
             BTNADMINBAJAS.Cursor = Cursors.Hand;
             BTNADMINBAJAS.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BTNADMINBAJAS.Location = new Point(580, 194);
+            BTNADMINBAJAS.Location = new Point(578, 243);
             BTNADMINBAJAS.Margin = new Padding(3, 2, 3, 2);
             BTNADMINBAJAS.Name = "BTNADMINBAJAS";
             BTNADMINBAJAS.Size = new Size(98, 29);
@@ -174,7 +181,7 @@
             buttonModificar.BackColor = Color.FromArgb(255, 255, 192);
             buttonModificar.Cursor = Cursors.Hand;
             buttonModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonModificar.Location = new Point(444, 194);
+            buttonModificar.Location = new Point(443, 243);
             buttonModificar.Margin = new Padding(3, 2, 3, 2);
             buttonModificar.Name = "buttonModificar";
             buttonModificar.Size = new Size(98, 29);
@@ -187,7 +194,7 @@
             // 
             textboxOtroExistencia.Cursor = Cursors.IBeam;
             textboxOtroExistencia.ForeColor = Color.Black;
-            textboxOtroExistencia.Location = new Point(307, 154);
+            textboxOtroExistencia.Location = new Point(305, 203);
             textboxOtroExistencia.Name = "textboxOtroExistencia";
             textboxOtroExistencia.PlaceholderText = "Existencias";
             textboxOtroExistencia.Size = new Size(100, 23);
@@ -198,7 +205,7 @@
             // 
             textboxOtroPrecio.Cursor = Cursors.IBeam;
             textboxOtroPrecio.ForeColor = Color.Black;
-            textboxOtroPrecio.Location = new Point(307, 119);
+            textboxOtroPrecio.Location = new Point(305, 168);
             textboxOtroPrecio.Name = "textboxOtroPrecio";
             textboxOtroPrecio.PlaceholderText = "Precio";
             textboxOtroPrecio.Size = new Size(100, 23);
@@ -209,7 +216,7 @@
             // 
             textboxOtroDescripcion.Cursor = Cursors.IBeam;
             textboxOtroDescripcion.ForeColor = Color.Black;
-            textboxOtroDescripcion.Location = new Point(307, 90);
+            textboxOtroDescripcion.Location = new Point(305, 139);
             textboxOtroDescripcion.Name = "textboxOtroDescripcion";
             textboxOtroDescripcion.PlaceholderText = "Descripción";
             textboxOtroDescripcion.Size = new Size(100, 23);
@@ -220,7 +227,7 @@
             // 
             textboxOtroImagen.Cursor = Cursors.IBeam;
             textboxOtroImagen.ForeColor = Color.Black;
-            textboxOtroImagen.Location = new Point(308, 61);
+            textboxOtroImagen.Location = new Point(306, 110);
             textboxOtroImagen.Name = "textboxOtroImagen";
             textboxOtroImagen.PlaceholderText = "Imagen";
             textboxOtroImagen.Size = new Size(100, 23);
@@ -231,7 +238,7 @@
             // 
             TextBoxId.Cursor = Cursors.IBeam;
             TextBoxId.ForeColor = Color.Blue;
-            TextBoxId.Location = new Point(444, 83);
+            TextBoxId.Location = new Point(443, 132);
             TextBoxId.Name = "TextBoxId";
             TextBoxId.PlaceholderText = "Id a modificar";
             TextBoxId.Size = new Size(100, 23);
@@ -242,7 +249,7 @@
             // 
             TextBoxExistencias.Cursor = Cursors.IBeam;
             TextBoxExistencias.ForeColor = Color.Black;
-            TextBoxExistencias.Location = new Point(444, 154);
+            TextBoxExistencias.Location = new Point(443, 203);
             TextBoxExistencias.Name = "TextBoxExistencias";
             TextBoxExistencias.PlaceholderText = "Existencias";
             TextBoxExistencias.Size = new Size(100, 23);
@@ -253,7 +260,7 @@
             // 
             TextBoxPrecio.Cursor = Cursors.IBeam;
             TextBoxPrecio.ForeColor = Color.Black;
-            TextBoxPrecio.Location = new Point(444, 119);
+            TextBoxPrecio.Location = new Point(443, 168);
             TextBoxPrecio.Name = "TextBoxPrecio";
             TextBoxPrecio.PlaceholderText = "Precio";
             TextBoxPrecio.Size = new Size(100, 23);
@@ -264,7 +271,7 @@
             // 
             textBoxEliminar.Cursor = Cursors.IBeam;
             textBoxEliminar.ForeColor = Color.Red;
-            textBoxEliminar.Location = new Point(580, 154);
+            textBoxEliminar.Location = new Point(578, 203);
             textBoxEliminar.Name = "textBoxEliminar";
             textBoxEliminar.PlaceholderText = "Id a eliminar";
             textBoxEliminar.Size = new Size(100, 23);
@@ -275,45 +282,83 @@
             // 
             labelVentasTotales.Cursor = Cursors.IBeam;
             labelVentasTotales.ForeColor = Color.Blue;
-            labelVentasTotales.Location = new Point(401, 290);
+            labelVentasTotales.Location = new Point(305, 327);
             labelVentasTotales.Name = "labelVentasTotales";
             labelVentasTotales.PlaceholderText = "Id a modificar";
             labelVentasTotales.Size = new Size(100, 23);
             labelVentasTotales.TabIndex = 20;
             labelVentasTotales.TextAlign = HorizontalAlignment.Center;
             // 
-            // button1
+            // btnGrafica
             // 
-            button1.BackColor = Color.FromArgb(192, 192, 255);
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(177, 235);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(98, 29);
-            button1.TabIndex = 21;
-            button1.Text = "Ventas";
-            button1.UseVisualStyleBackColor = false;
+            btnGrafica.BackColor = Color.FromArgb(255, 192, 255);
+            btnGrafica.Cursor = Cursors.Hand;
+            btnGrafica.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnGrafica.Location = new Point(443, 284);
+            btnGrafica.Margin = new Padding(3, 2, 3, 2);
+            btnGrafica.Name = "btnGrafica";
+            btnGrafica.Size = new Size(98, 29);
+            btnGrafica.TabIndex = 21;
+            btnGrafica.Text = "Grafica";
+            btnGrafica.UseVisualStyleBackColor = false;
             // 
             // labelNOMBRE
             // 
             labelNOMBRE.AutoSize = true;
             labelNOMBRE.Font = new Font("Segoe UI", 10.875F);
-            labelNOMBRE.Location = new Point(474, 21);
+            labelNOMBRE.Location = new Point(615, 56);
             labelNOMBRE.Margin = new Padding(2, 0, 2, 0);
             labelNOMBRE.Name = "labelNOMBRE";
-            labelNOMBRE.Size = new Size(70, 20);
+            labelNOMBRE.Size = new Size(59, 20);
             labelNOMBRE.TabIndex = 23;
-            labelNOMBRE.Text = "PrecioBD";
+            labelNOMBRE.Text = "Usuario";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(245, 140, 0);
+            pictureBox1.Location = new Point(-18, -5);
+            pictureBox1.Margin = new Padding(2, 1, 2, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(730, 54);
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.White;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(58, 5);
+            pictureBox5.Margin = new Padding(2, 1, 2, 1);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(136, 39);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 27;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.White;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(8, 5);
+            pictureBox6.Margin = new Padding(2, 1, 2, 1);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(50, 39);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 26;
+            pictureBox6.TabStop = false;
             // 
             // FormMainAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(700, 387);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox6);
+            Controls.Add(pictureBox1);
             Controls.Add(labelNOMBRE);
-            Controls.Add(button1);
+            Controls.Add(btnGrafica);
             Controls.Add(labelVentasTotales);
             Controls.Add(textBoxEliminar);
             Controls.Add(TextBoxPrecio);
@@ -338,6 +383,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MAIN ADMIN";
             Load += FormMainAdmin_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -363,7 +411,10 @@
         private TextBox TextBoxPrecio;
         private TextBox textBoxEliminar;
         private TextBox labelVentasTotales;
-        private Button button1;
+        private Button btnGrafica;
         private Label labelNOMBRE;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
     }
 }

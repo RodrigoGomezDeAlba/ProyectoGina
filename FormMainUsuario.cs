@@ -8,7 +8,7 @@ namespace ProyectoGina
 {
     public partial class FormMainUsuario : System.Windows.Forms.Form
     {
-        
+
         public static int cont;
         public static decimal prodc;
         public static List<string> vec;
@@ -21,7 +21,7 @@ namespace ProyectoGina
         public FormMainUsuario(string nombreUsuario)
         {
             InitializeComponent();
-            usuarioActual = nombreUsuario; 
+            usuarioActual = nombreUsuario;
             labelNombre.Text = $"{usuarioActual}";
             PICTUREIMAGES.SizeMode = PictureBoxSizeMode.Zoom;
 
@@ -163,7 +163,7 @@ namespace ProyectoGina
                 }
                 else
                 {
-                    MessageBox.Show($"No hay suficientes existencias para '{productoActual.Item1}'. Disponibles: {productoActual.Item3}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Producto Agotado, no hay suficientes existencias para '{productoActual.Item1}'. Disponibles: {productoActual.Item3}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -198,6 +198,14 @@ namespace ProyectoGina
         private void labelNombre_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void botonBorrar_Click(object sender, EventArgs e)
+        {
+            carrito.Clear();
+
+            
+            MessageBox.Show("El carrito ha sido vaciado exitosamente.", "Carrito Vacío", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

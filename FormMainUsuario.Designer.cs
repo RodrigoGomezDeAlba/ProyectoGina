@@ -46,12 +46,15 @@
             LBLPRODUCTOPRECIO = new Label();
             LBLPRODUCTOEXISTENCIAS = new Label();
             labelNombre = new Label();
+            fileSystemWatcher1 = new FileSystemWatcher();
+            botonBorrar = new Button();
             ((System.ComponentModel.ISupportInitialize)PICTUREIMAGES).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CONTADORPRODMAINUSU).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCarrito).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             SuspendLayout();
             // 
             // ImageProductos
@@ -223,7 +226,7 @@
             // 
             LBLPRODUCTOPRECIO.AutoSize = true;
             LBLPRODUCTOPRECIO.Font = new Font("Segoe UI", 10.875F);
-            LBLPRODUCTOPRECIO.Location = new Point(352, 150);
+            LBLPRODUCTOPRECIO.Location = new Point(352, 147);
             LBLPRODUCTOPRECIO.Margin = new Padding(2, 0, 2, 0);
             LBLPRODUCTOPRECIO.Name = "LBLPRODUCTOPRECIO";
             LBLPRODUCTOPRECIO.Size = new Size(70, 20);
@@ -237,21 +240,40 @@
             LBLPRODUCTOEXISTENCIAS.Location = new Point(352, 181);
             LBLPRODUCTOEXISTENCIAS.Margin = new Padding(2, 0, 2, 0);
             LBLPRODUCTOEXISTENCIAS.Name = "LBLPRODUCTOEXISTENCIAS";
-            LBLPRODUCTOEXISTENCIAS.Size = new Size(70, 20);
+            LBLPRODUCTOEXISTENCIAS.Size = new Size(80, 20);
             LBLPRODUCTOEXISTENCIAS.TabIndex = 16;
-            LBLPRODUCTOEXISTENCIAS.Text = "PrecioBD";
+            LBLPRODUCTOEXISTENCIAS.Text = "Existencias";
             // 
             // labelNombre
             // 
             labelNombre.AutoSize = true;
             labelNombre.Font = new Font("Segoe UI", 10.875F);
-            labelNombre.Location = new Point(501, 9);
+            labelNombre.Location = new Point(541, 26);
             labelNombre.Margin = new Padding(2, 0, 2, 0);
             labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(70, 20);
+            labelNombre.Size = new Size(59, 20);
             labelNombre.TabIndex = 17;
-            labelNombre.Text = "PrecioBD";
+            labelNombre.Text = "Usuario";
             labelNombre.Click += labelNombre_Click;
+            // 
+            // fileSystemWatcher1
+            // 
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // botonBorrar
+            // 
+            botonBorrar.BackColor = Color.FromArgb(255, 192, 192);
+            botonBorrar.Cursor = Cursors.Hand;
+            botonBorrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            botonBorrar.Location = new Point(625, 63);
+            botonBorrar.Margin = new Padding(3, 2, 3, 2);
+            botonBorrar.Name = "botonBorrar";
+            botonBorrar.Size = new Size(68, 29);
+            botonBorrar.TabIndex = 18;
+            botonBorrar.Text = "Borrar";
+            botonBorrar.UseVisualStyleBackColor = false;
+            botonBorrar.Click += botonBorrar_Click;
             // 
             // FormMainUsuario
             // 
@@ -259,6 +281,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(700, 338);
+            Controls.Add(botonBorrar);
             Controls.Add(labelNombre);
             Controls.Add(LBLPRODUCTOEXISTENCIAS);
             Controls.Add(LBLPRODUCTOPRECIO);
@@ -285,6 +308,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -307,5 +331,7 @@
         private Label LBLPRODUCTOPRECIO;
         private Label LBLPRODUCTOEXISTENCIAS;
         private Label labelNombre;
+        private FileSystemWatcher fileSystemWatcher1;
+        private Button botonBorrar;
     }
 }

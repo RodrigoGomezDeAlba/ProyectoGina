@@ -13,8 +13,8 @@ namespace ProyectoGina
         private string usuarioActual;
         public FormOxxo(string nombreUsuario)
         {
-            usuarioActual = nombreUsuario;
             InitializeComponent();
+            usuarioActual = nombreUsuario;
             Connect();
         }
 
@@ -201,6 +201,8 @@ namespace ProyectoGina
                 MessageBox.Show($"Error al actualizar la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
     
 }

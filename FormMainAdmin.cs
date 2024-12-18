@@ -18,11 +18,7 @@ namespace ProyectoGina
 {
     public partial class FormMainAdmin : Form
     {
-        private int id;
-        private string imagen;
-        private string descripcion;
-        private double precio;
-        private int existencia;
+
         private string adminActual;
         private MySqlConnection connection;
 
@@ -33,21 +29,6 @@ namespace ProyectoGina
             adminActual = nombreAdmin;
             labelNOMBRE.Text = $"{adminActual}";
         }
-
-        public FormMainAdmin(int id, string imagen, string descripcion, double precio, int existencia)
-        {
-            this.Id = id;
-            this.Imagen = imagen;
-            this.Descripcion = descripcion;
-            this.Precio = precio;
-            this.Existencia = existencia;
-        }
-
-        public int Id { get => id; set => id = value; }
-        public string Imagen { get => imagen; set => imagen = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        public double Precio { get => precio; set => precio = value; }
-        public int Existencia { get => existencia; set => existencia = value; }
 
         public void Connect()
         {
@@ -81,9 +62,9 @@ namespace ProyectoGina
             form.ShowDialog();
         }
 
-        private List<FormMainAdmin> consulta()
+        private List<Productos> consulta()
         {
-            List<FormMainAdmin> data = new List<FormMainAdmin>();
+            List<Productos> data = new List<Productos>();
             try
             {
                 string query = "SELECT * FROM productos ORDER BY existencia ASC";
@@ -98,7 +79,7 @@ namespace ProyectoGina
                     double precio = Convert.ToDouble(reader["precio"]);
                     int existencia = Convert.ToInt32(reader["existencia"]);
 
-                    data.Add(new FormMainAdmin(id, imagen, descripcion, precio, existencia));
+                    data.Add(new Productos(id, imagen, descripcion, precio, existencia));
                 }
 
                 reader.Close();
@@ -106,7 +87,6 @@ namespace ProyectoGina
             catch (Exception ex)
             {
                 MessageBox.Show("Error al leer la tabla de la base de datos: " + ex.Message);
-                Disconnect();
             }
 
             return data;
@@ -168,16 +148,16 @@ namespace ProyectoGina
             }
         }
 
-        private FormMainAdmin consultaUnRegistro(int idp)
+        private Productos consultaUnRegistro(int idp)
         {
-            FormMainAdmin item = null;
+            Productos item = null;
             try
             {
-                string query = "SELECT * FROM productos WHERE id=" + idp + ";";
+                string query = $"SELECT * FROM productos WHERE id={idp}";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
                     int id = Convert.ToInt32(reader["id"]);
                     string imagen = Convert.ToString(reader["imagen"]) ?? "";
@@ -185,7 +165,7 @@ namespace ProyectoGina
                     double precio = Convert.ToDouble(reader["precio"]);
                     int existencia = Convert.ToInt32(reader["existencia"]);
 
-                    item = new FormMainAdmin(id, imagen, descripcion, precio, existencia);
+                    item = new Productos(id, imagen, descripcion, precio, existencia);
                 }
 
                 reader.Close();
@@ -193,7 +173,6 @@ namespace ProyectoGina
             catch (Exception ex)
             {
                 MessageBox.Show("Error al consultar registro: " + ex.Message);
-                Disconnect();
             }
 
             return item;
@@ -241,22 +220,19 @@ namespace ProyectoGina
             }
         }
 
-        List<FormMainAdmin> data;
+        List<Productos> data;
 
         private void botonConsulta_Click_1(object sender, EventArgs e)
         {
-            FormMainAdmin obj = new FormMainAdmin("AdminActual");
-            data = obj.consulta();
-
+            List<Productos> data = consulta();
 
             this.richTextBoxDatos.Clear();
             data.ForEach(p =>
             {
-                this.richTextBoxDatos.AppendText("Id: " + p.Id + "\n" + "Imagen:" + p.Imagen + "\n" + "Descripcion: " + p.Descripcion + "\n" + "Precio: " + p.Precio + "\n" + "Existencia: " + p.Existencia + "\n\n");
+                this.richTextBoxDatos.AppendText(
+                    $"Id: {p.Id}\nImagen: {p.Imagen}\nDescripcion: {p.Descripcion}\nPrecio: {p.Precio}\nExistencia: {p.Existencia}\n\n"
+                );
             });
-
-            obj.Disconnect();
-
         }
 
         private void BTNADMINALTAS_Click_1(object sender, EventArgs e)
@@ -267,6 +243,7 @@ namespace ProyectoGina
             double precio;
             int existencia;
 
+            // Validar los datos de entrada
             if (!int.TryParse(this.textboxOtroId.Text, out id) ||
                 string.IsNullOrWhiteSpace(this.textboxOtroImagen.Text) ||
                 string.IsNullOrWhiteSpace(this.textboxOtroDescripcion.Text) ||
@@ -280,19 +257,20 @@ namespace ProyectoGina
             imagen = this.textboxOtroImagen.Text;
             descripcion = this.textboxOtroDescripcion.Text;
 
+            // Verificar la cantidad total de productos
             int totalProductos = ObtenerNumeroDeProductos();
             if (totalProductos >= 10)
             {
-                MessageBox.Show("No puedes registrar mas de 10 productos en el inventario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No puedes registrar más de 10 productos en el inventario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                FormMainAdmin obj = new FormMainAdmin("AdminActual");
-                obj.insertar(id, imagen, descripcion, precio, existencia);
-                obj.Disconnect();
-                MessageBox.Show("Producto agregado correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Llamar al método insertar para agregar el producto
+                insertar(id, imagen, descripcion, precio, existencia);
+
+                MessageBox.Show("Producto agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -306,20 +284,29 @@ namespace ProyectoGina
         {
             if (!int.TryParse(textBoxEliminar.Text, out int id))
             {
-                MessageBox.Show("Ingrese un ID valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un ID válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // Verificar si el total de productos es menor al límite permitido
             int totalProductos = ObtenerNumeroDeProductos();
-
             if (totalProductos <= 6)
             {
                 MessageBox.Show("No puedes tener menos de 6 productos en el inventario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FormMainAdmin obj = new FormMainAdmin("AdminActual");
-            obj.eliminar(Convert.ToInt32(this.textBoxEliminar.Text));
-            obj.Disconnect();
+
+            try
+            {
+                // Llamar al método eliminar para eliminar el producto
+                eliminar(id);
+
+                MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
@@ -373,17 +360,32 @@ namespace ProyectoGina
 
         private void buttonDatos_Click_1(object sender, EventArgs e)
         {
-            FormMainAdmin obj = new FormMainAdmin("AdminActual");
-            FormMainAdmin aux = obj.consultaUnRegistro(Convert.ToInt32(this.TextBoxId.Text));
-            MessageBox.Show(aux.Id + " " + aux.Imagen + " " + aux.Descripcion + " " + aux.Precio + " " + aux.Existencia);
+            if (!int.TryParse(this.TextBoxId.Text, out int id))
+            {
+                MessageBox.Show("Por favor, ingresa un ID válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            Productos producto = consultaUnRegistro(id);
 
-            this.TextBoxId.Text = Convert.ToString(aux.Id);
-            this.TextBoxPrecio.Text = Convert.ToString(aux.Precio);
-            this.TextBoxExistencias.Text = Convert.ToString(aux.Existencia);
+            if (producto != null)
+            {
+                MessageBox.Show(
+                    $"ID: {producto.Id}\n" +
+                    $"Imagen: {producto.Imagen}\n" +
+                    $"Descripcion: {producto.Descripcion}\n" +
+                    $"Precio: {producto.Precio}\n" +
+                    $"Existencia: {producto.Existencia}"
+                );
 
-
-            obj.Disconnect();
+                this.TextBoxId.Text = producto.Id.ToString();
+                this.TextBoxPrecio.Text = producto.Precio.ToString();
+                this.TextBoxExistencias.Text = producto.Existencia.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el producto.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void TextBoxId_TextChanged(object sender, EventArgs e)
@@ -397,6 +399,11 @@ namespace ProyectoGina
         }
 
         private void richTextBoxDatos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
         {
 
         }

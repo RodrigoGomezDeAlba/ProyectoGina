@@ -53,5 +53,11 @@ namespace ProyectoGina
             FormOxxo f = new FormOxxo(usuarioActual);
             f.ShowDialog();
         }
+
+        private void BTNREGRESAR_Click(object sender, EventArgs e)
+        {
+            // Cerrar este formulario y regresar
+            this.Close();
+        }
     }
 }
